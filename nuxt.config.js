@@ -38,7 +38,8 @@ module.exports = {
 		{
 			src: '@/plugins/vue-particles',
 			ssr: false
-		}
+		},
+		{ src: '~plugins/smooth-scroll.js', ssr: false }
 	],
 	/*
 	 ** Nuxt.js modules

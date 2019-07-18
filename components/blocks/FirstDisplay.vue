@@ -13,7 +13,7 @@
 			<NextScreenButton
 				v-if="showNextScreenButton"
 				class="next-screen-btn"
-				:show-conditions="showNextScreenButton"
+				:elem="'#display-block'"
 			></NextScreenButton>
 		</transition>
 		<!-- блок с фоном вырезанной роборуки -->
@@ -76,6 +76,7 @@ export default {
     height: 100vh;
     background-image: url('/img/first-display/background.jpg');
     background-size: cover;
+	background-attachment: fixed;
 	/* Заголовок */
     & .title {
         position: relative;
@@ -98,6 +99,7 @@ export default {
         width: 100%;
         height: 100vh;
         background-image: url('/img/first-display/arm.png');
+		background-attachment: fixed;
         background-size: cover;
     }
 	/* лого ниеншанц */

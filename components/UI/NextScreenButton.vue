@@ -1,5 +1,8 @@
 <template lang="html">
-	<div :class="[isAnimate ? 'button__animated' : '', 'button']">
+	<div
+		:class="[isAnimate ? 'button__animated' : '', 'button']"
+		@click="scroll"
+	>
 		<img class="down-arrow" src="/img/down-arrow.svg" alt="" />
 	</div>
 </template>
@@ -7,9 +10,8 @@
 <script>
 export default {
 	props: {
-		showConditions: {
-			type: Boolean,
-			default: true
+		elem: {
+			type: String
 		}
 	},
 
@@ -21,6 +23,16 @@ export default {
 
 	mounted() {
 		setTimeout(() => (this.isAnimate = true), 800)
+	},
+
+	methods: {
+		scroll() {
+			if (this.elem) {
+				document
+					.querySelector(this.elem)
+					.scrollIntoView({ behavior: 'smooth' })
+			}
+		}
 	}
 }
 </script>
