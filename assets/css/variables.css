@@ -1,0 +1,14 @@
+:root {
+	/* Цвета */
+    --marine: #0bdbdd;
+	--blue: #0095da;
+	/* Моя сетка */
+	--side-padding: 20px;
+	--column: calc((100vw - (23 * 20px)) / 24);
+	--row: calc((100vh - (20px * 9)) / 10);
+	--gutter: 20px;
+	/* Мобильная сетка */
+	--m-column: calc((100vw - (11 * 10px)) / 12);
+	--m-row: calc((100vh - (10px * 9)) / 10);
+	--m-gutter: 10px;
+}

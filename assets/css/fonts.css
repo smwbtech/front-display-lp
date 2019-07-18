@@ -1,0 +1,80 @@
+@font-face {
+    font-family: 'Orpheus';
+    src: local('Orpheus'),
+        url('/fonts/Orpheus.woff2') format('woff2'),
+        url('/fonts/Orpheus.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Clear Sans';
+    src: local('Clear Sans Thin'), local('ClearSans-Thin'),
+        url('/fonts/ClearSans-Thin.woff2') format('woff2'),
+        url('/fonts/ClearSans-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Clear Sans';
+    src: local('Clear Sans Bold Italic'), local('ClearSans-BoldItalic'),
+        url('/fonts/ClearSans-BoldItalic.woff2') format('woff2'),
+        url('/fonts/ClearSans-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Clear Sans';
+    src: local('Clear Sans Bold'), local('ClearSans-Bold'),
+        url('/fonts/ClearSans-Bold.woff2') format('woff2'),
+        url('/fonts/ClearSans-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Clear Sans';
+    src: local('Clear Sans Medium Italic'), local('ClearSans-MediumItalic'),
+        url('/fonts/ClearSans-MediumItalic.woff2') format('woff2'),
+        url('/fonts/ClearSans-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Clear Sans';
+    src: local('Clear Sans Italic'), local('ClearSans-Italic'),
+        url('/fonts/ClearSans-Italic.woff2') format('woff2'),
+        url('/fonts/ClearSans-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Clear Sans';
+    src: local('Clear Sans Medium'), local('ClearSans-Medium'),
+        url('/fonts/ClearSans-Medium.woff2') format('woff2'),
+        url('/fonts/ClearSans-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Clear Sans';
+    src: local('Clear Sans Light'), local('ClearSans-Light'),
+        url('/fonts/ClearSans-Light.woff2') format('woff2'),
+        url('/fonts/ClearSans-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Clear Sans';
+    src: local('Clear Sans'), local('ClearSans'),
+        url('/fonts/ClearSans.woff2') format('woff2'),
+        url('/fonts/ClearSans.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

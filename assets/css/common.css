@@ -1,0 +1,32 @@
+*,
+*:before,
+*::after {
+	box-sizing: border-box;
+	line-height: 1.4;
+}
+
+:root {
+	font-family: 'Clear Sans', sans-serif;
+}
+
+a {
+	color: inherit;
+}
+
+br {
+	line-height: 2em;
+}
+
+ul {
+	padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Orpheus', serif;
+	margin: 0;
+}
