@@ -8,6 +8,15 @@
 				производства «Ниешанц-Автоматика»
 			</h1>
 		</transition>
+		<!-- Кнопка перехода на следующий экран -->
+		<transition name="fade-in-top" mode="out-in">
+			<NextScreenButton
+				v-if="showNextScreenButton"
+				class="next-screen-btn"
+				:show-conditions="showNextScreenButton"
+			></NextScreenButton>
+		</transition>
+		<!-- блок с фоном вырезанной роборуки -->
 		<div alt="" class="arm" />
 		<vue-particles
 			class="particles"
@@ -16,6 +25,7 @@
 			:line-linked="false"
 			shapeType="polygon"
 		/>
+		<!-- логотип Ниеншанц-Автоматика -->
 		<transition name="fade-in" mode="out-in">
 			<img
 				v-if="showLogo"
@@ -29,24 +39,30 @@
 
 <script>
 import Menu from '@/components/Menu.vue'
+import NextScreenButton from '@/components/UI/NextScreenButton.vue'
 
 export default {
 	components: {
-		Menu
+		Menu,
+		NextScreenButton
 	},
 
 	data() {
 		return {
 			showLogo: false,
-			showTitle: false
+			showTitle: false,
+			showNextScreenButton: false
 		}
 	},
 
 	mounted() {
 		// Показываем лого
 		setTimeout(() => (this.showLogo = true), 400)
-		// Показываем заголовок
-		setTimeout(() => (this.showTitle = true), 600)
+		// Показываем заголовок и кнопку перехода на следующий экран
+		setTimeout(() => {
+			this.showTitle = true
+			this.showNextScreenButton = true
+		}, 600)
 	}
 }
 </script>
@@ -60,7 +76,7 @@ export default {
     height: 100vh;
     background-image: url('/img/first-display/background.jpg');
     background-size: cover;
-
+	/* Заголовок */
     & .title {
         position: relative;
         z-index: 10;
@@ -72,7 +88,7 @@ export default {
         margin: 0 auto;
         margin-top: calc(var(--row) + var(--gutter));
     }
-
+	/* Отдельный фон с роборукой */
     & .arm {
         position: absolute;
         top: 0;
@@ -84,7 +100,7 @@ export default {
         background-image: url('/img/first-display/arm.png');
         background-size: cover;
     }
-
+	/* лого ниеншанц */
     & .nnz-logo {
         position: absolute;
         z-index: 4;
@@ -92,7 +108,7 @@ export default {
         top: 40%;
         left: calc(var(--column) * 8 + var(--gutter) * 7);
     }
-
+	/* блок с частицами */
     & .particles {
         position: absolute;
         top: 0;
@@ -100,6 +116,14 @@ export default {
         width: 100%;
         height: 100vh;
     }
+	/*  */
+	& .next-screen-btn {
+		position: absolute;
+		bottom: var(--row);
+		left: calc(50% - (var(--column) * 2 + var(--gutter) * 1) / 2);
+		width: calc(var(--column) * 2 + var(--gutter) * 1);
+		height: calc(var(--column) * 2 + var(--gutter) * 1);
+	}
 }
 
 /* Анимации и переходы */
@@ -127,6 +151,19 @@ export default {
 
 .fade-in-bottom-enter-active,
 .fade-in-bottom-leave-active {
+    transition: opacity .3s ease-in, transform .35s ease-in;
+}
+
+/* Кнопка */
+
+.fade-in-top-enter,
+.fade-in-top-leave-to {
+	opacity: 0;
+	transform: translateY(-20px);
+}
+
+.fade-in-top-enter-active,
+.fade-in-top-leave-active {
     transition: opacity .3s ease-in, transform .35s ease-in;
 }
 </style>
