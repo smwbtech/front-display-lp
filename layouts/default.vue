@@ -1,7 +1,11 @@
 <template>
-	<div>
+	<div id="#app">
 		<nuxt />
 	</div>
 </template>
 
-<style></style>
+<style>
+#app {
+	min-height: 100vh;
+}
+</style>

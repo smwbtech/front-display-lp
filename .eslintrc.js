@@ -20,6 +20,7 @@ module.exports = {
 		'nuxt/no-cjs-in-config': 'off',
 		prettier: true,
 		'no-tabs': 0,
-		indent: [2, 'tab']
+		indent: [2, 'tab'],
+		'no-console': 1
 	}
 }

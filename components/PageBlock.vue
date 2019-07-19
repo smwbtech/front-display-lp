@@ -11,6 +11,6 @@ export default {}
 <style lang="css" scoped>
 
 .block {
-    min-width: 100vw;
+    min-width: 100%;
 }
 </style>

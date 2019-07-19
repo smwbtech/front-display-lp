@@ -70,10 +70,10 @@ export default {
 <style lang="css" scoped>
 
 .first-display {
-    overflow: hidden;
     position: relative;
     width: 100%;
     height: 100vh;
+	margin-bottom: 0.5px;
     background-image: url('/img/first-display/background.jpg');
     background-size: cover;
 	background-attachment: fixed;

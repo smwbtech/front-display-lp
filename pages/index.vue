@@ -5,7 +5,9 @@
 			<FirstDisplay />
 		</PageBlock>
 		<!-- Экран с подробной информацией о мониторе -->
-		<PageBlock><DisplayBlock></DisplayBlock></PageBlock>
+		<PageBlock>
+			<DisplayBlock />
+		</PageBlock>
 	</div>
 </template>
 
