@@ -55,7 +55,10 @@
 					:showCondition="isObserved"
 				/>
 			</div>
-			<NextScreenButton class="next-screen-btn" />
+			<NextScreenButton
+				class="next-screen-btn"
+				:elem="'.features-block'"
+			/>
 		</div>
 	</section>
 </template>

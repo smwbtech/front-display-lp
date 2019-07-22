@@ -8,6 +8,8 @@
 		<PageBlock>
 			<DisplayBlock />
 		</PageBlock>
+		<!-- Слайдер с особенностями -->
+		<PageBlock><FeaturesBlock /></PageBlock>
 	</div>
 </template>
 
@@ -15,12 +17,14 @@
 import PageBlock from '@/components/PageBlock.vue'
 import FirstDisplay from '@/components/blocks/FirstDisplay.vue'
 import DisplayBlock from '@/components/blocks/DisplayBlock.vue'
+import FeaturesBlock from '@/components/blocks/FeaturesBlock.vue'
 
 export default {
 	components: {
 		PageBlock,
 		FirstDisplay,
-		DisplayBlock
+		DisplayBlock,
+		FeaturesBlock
 	}
 }
 </script>
