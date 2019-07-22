@@ -47,6 +47,7 @@
 		"postcss-preset-env": "^6.7.0",
 		"prettier": "^1.16.4",
 		"vue-jest": "^3.0.3",
-		"vue-particles": "^1.0.9"
+		"vue-particles": "^1.0.9",
+		"vue-svg-loader": "^0.12.0"
 	}
 }
