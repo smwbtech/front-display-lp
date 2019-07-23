@@ -25,9 +25,19 @@
 					{{ currentFeature.description }}
 				</p>
 			</div>
-			<div class="navigation">
-				ul>li
-			</div>
+			<ul class="nav">
+				<li
+					v-for="(component, index) in navComponents"
+					:key="`${index}-nav`"
+					class="nav-item"
+					@click="changeSlide(index)"
+				>
+					<component
+						:is="`${component}`"
+						:class="[index === current ? 'active' : '']"
+					/>
+				</li>
+			</ul>
 		</div>
 	</section>
 </template>
@@ -37,6 +47,13 @@ export default {
 	data() {
 		return {
 			current: 0,
+			navComponents: [
+				'Ip65Nav',
+				'TemperatureNav',
+				'PortsNav',
+				'TouchNav',
+				'CustomizatiomNav'
+			],
 			features: [
 				{
 					illustrations: [
@@ -96,6 +113,17 @@ export default {
 		currentFeature() {
 			return this.features[this.current]
 		}
+	},
+
+	methods: {
+		/**
+		 * Меняем слайд
+		 * @param  {number} i 	 - номер слайда
+		 * @return {undefined}   [description]
+		 */
+		changeSlide(i) {
+			this.current = i
+		}
 	}
 }
 </script>
@@ -131,7 +159,9 @@ export default {
         position: relative;
         display: flex;
         flex-flow: column;
+		justify-content: space-between;
         width: calc(var(--column) * 11 + var(--gutter) * 10);
+		height: calc(var(--row) * 7 + var(--gutter) * 6);
 
         & .title {
             font-family: 'Clear Sans', sans-serif;
@@ -140,6 +170,11 @@ export default {
         }
 
         & .feature-text {
+
+			display: flex;
+			flex-flow: column;
+			justify-content: center;
+			min-height: calc(var(--row) * 3 + var(--gutter) * 2);
 
             & .feature-text__title {
                 font-family: 'Orpheus', serif;
@@ -154,10 +189,28 @@ export default {
 
         /* Декоративная линия */
         & .text__decore-line {
-            height: 70%;
+            height: 100%;
             left: calc(var(--column) * -1);
         }
 
+		/* Навигация */
+		& .nav {
+			display: flex;
+			width: 50%;
+			list-style: none;
+			justify-content: space-between;
+
+			/* Иконка навигации */
+			& .nav-item {
+				width: 30px;
+				height: 30px;
+				cursor: pointer;
+
+				& .active {
+					fill: var(--blue);
+				}
+			}
+		}
     }
 
 }
