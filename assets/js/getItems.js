@@ -6,6 +6,7 @@ const SECTION_ID = 297677 // id секции FRONT DISPLAY
 /**
  * Получения списка товаров из заданного раздела
  * каталога сайта nnz-ipc.ru
+ * @async
  * @param  {string} token - токен доступа к API
  * @return {array}        - массив c объектами товаров
  */
