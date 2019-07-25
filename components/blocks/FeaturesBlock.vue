@@ -120,10 +120,6 @@ export default {
 		}
 	},
 
-	mounted() {
-		this.observeScroll(this.$el)
-	},
-
 	computed: {
 		/**
 		 * Возвращает текущее свойство
@@ -132,6 +128,10 @@ export default {
 		currentFeature() {
 			return this.features[this.current]
 		}
+	},
+
+	mounted() {
+		this.observeScroll(this.$el)
 	},
 
 	methods: {
@@ -194,7 +194,7 @@ export default {
 		changeByClick(i) {
 			clearInterval(this.timerId)
 			this.changeSlide(i)
-			setTimeout(this.autoSlider, 8000)
+			this.autoSlider()
 		}
 	}
 }
