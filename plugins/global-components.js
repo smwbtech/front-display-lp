@@ -7,6 +7,8 @@ import TemperatureNav from '@/assets/img/features/temperature_nav.svg'
 import PortsNav from '@/assets/img/features/ports_nav.svg'
 import TouchNav from '@/assets/img/features/touch_nav.svg'
 import CustomizatiomNav from '@/assets/img/features/customization_nav.svg'
+import ArrowLeft from '@/assets/img/left-arrow.svg'
+import ArrowRight from '@/assets/img/right-arrow.svg'
 
 const globals = {
 	NextScreenButton,
@@ -16,7 +18,9 @@ const globals = {
 	TemperatureNav,
 	PortsNav,
 	TouchNav,
-	CustomizatiomNav
+	CustomizatiomNav,
+	ArrowLeft,
+	ArrowRight
 }
 
 for (const [name, component] of Object.entries(globals)) {
