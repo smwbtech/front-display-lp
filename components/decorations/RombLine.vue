@@ -22,7 +22,7 @@ export default {}
         width: 3px;
         height: calc(100% - 40px);
         margin-bottom: 20px;
-        background: linear-gradient(90deg, var(--marine), var(--blue));
+        background: linear-gradient(180deg, var(--marine), var(--blue));
     }
 
     & .romb {
