@@ -1,7 +1,8 @@
 :root {
 	/* Цвета */
-    --marine: #0bdbdd;
+	--marine: #0bdbdd;
 	--blue: #0095da;
+	--green: #00da95;
 	/* Моя сетка */
 	--side-padding: 20px;
 	--column: calc((100vw - (23 * 20px)) / 24);
