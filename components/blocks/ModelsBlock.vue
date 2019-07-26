@@ -12,9 +12,11 @@
 			<div class="wrapper">
 				<div class="models-list" :style="styleObj">
 					<ModelListItem
-						v-for="model in items"
+						v-for="(model, index) in items"
 						:key="model.name"
 						:model="model"
+						:index="index"
+						@more-info="(index) => $emit('show-modal', index)"
 					></ModelListItem>
 				</div>
 			</div>
