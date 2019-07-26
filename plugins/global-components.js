@@ -9,6 +9,7 @@ import TouchNav from '@/assets/img/features/touch_nav.svg'
 import CustomizatiomNav from '@/assets/img/features/customization_nav.svg'
 import ArrowLeft from '@/assets/img/left-arrow.svg'
 import ArrowRight from '@/assets/img/right-arrow.svg'
+import CloseButton from '@/assets/img/cross.svg'
 
 const globals = {
 	NextScreenButton,
@@ -20,7 +21,8 @@ const globals = {
 	TouchNav,
 	CustomizatiomNav,
 	ArrowLeft,
-	ArrowRight
+	ArrowRight,
+	CloseButton
 }
 
 for (const [name, component] of Object.entries(globals)) {
