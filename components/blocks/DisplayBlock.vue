@@ -31,7 +31,12 @@
 
 			<transition name="text-appear" mode="out-in">
 				<ActionButton v-if="isObserved" class="catalog-btn">
-					перейти в каталог
+					<a
+						href="https://nnz-ipc.ru/catalogue/front_man/front_display/"
+						target="_blank"
+						class="catalog"
+						>перейти в каталог</a
+					>
 				</ActionButton>
 			</transition>
 		</div>
@@ -252,6 +257,13 @@ export default {
 
 		& .catalog-btn {
 			width: calc(var(--column) * 3 + var(--gutter) * 2);
+
+			& a {
+				display: block;
+				width: 100%;
+				padding: 10px;
+				text-decoration: none;
+			}
 		}
 	}
 
