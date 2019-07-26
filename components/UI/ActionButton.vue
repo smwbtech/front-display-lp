@@ -19,7 +19,6 @@ export default {
     position: relative;
     border-radius: 60px;
     overflow: hidden;
-    padding: 10px;
     cursor: pointer;
 
     & .button__text {
