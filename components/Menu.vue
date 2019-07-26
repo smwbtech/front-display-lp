@@ -2,18 +2,32 @@
 	<nav class="menu">
 		<img src="/img/fd_logo.svg" alt="" class="logo" />
 		<ul class="menu-list">
-			<li class="menu-list__item">
-				<a href="">монитор</a>
+			<li
+				class="menu-list__item"
+				@click.prevent="scrollTo('.display-block')"
+			>
+				<a href="#">монитор</a>
 			</li>
-			<li class="menu-list__item">
-				<a href="">особенности</a>
+			<li
+				class="menu-list__item"
+				@click.prevent="scrollTo('.features-block')"
+			>
+				<a href="#">особенности</a>
 			</li>
-			<li class="menu-list__item">
-				<a href="">модели</a>
+			<li
+				class="menu-list__item"
+				@click.prevent="scrollTo('.models-display')"
+			>
+				<a href="#">модели</a>
 			</li>
 			<li class="menu-list__item">
 				<ActionButton class="buy-btn">
-					купить
+					<a
+						href="https://nnz-ipc.ru/catalogue/front_man/front_display/"
+						target="_blank"
+						class="buy"
+						>купить</a
+					>
 				</ActionButton>
 			</li>
 		</ul>
@@ -26,6 +40,14 @@ import ActionButton from '@/components/UI/ActionButton.vue'
 export default {
 	components: {
 		ActionButton
+	},
+
+	methods: {
+		scrollTo(selector) {
+			document
+				.querySelector(selector)
+				.scrollIntoView({ behavior: 'smooth' })
+		}
 	}
 }
 </script>
@@ -62,6 +84,12 @@ export default {
 
             & .buy-btn {
                 width: calc(var(--column) * 2 + var(--gutter));
+
+				& .buy {
+					display: block;
+					text-decoration: none;
+					padding: 10px;
+				}
             }
         }
     }
