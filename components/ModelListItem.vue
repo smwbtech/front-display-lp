@@ -143,4 +143,10 @@ export default {
 		}
     }
 }
+
+@media (320px <= width < 1024px) {
+	.model-item {
+		width: calc(var(--m-column) * 8 + var(--m-gutter) * 7);
+	}
+}
 </style>

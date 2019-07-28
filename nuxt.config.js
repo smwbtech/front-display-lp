@@ -4,7 +4,7 @@ module.exports = {
 	 ** Headers of the page
 	 */
 	head: {
-		title: process.env.npm_package_name || '',
+		title: 'Промышленные мониторы Front Display',
 		meta: [
 			{ charset: 'utf-8' },
 			{
@@ -14,7 +14,14 @@ module.exports = {
 			{
 				hid: 'description',
 				name: 'description',
-				content: process.env.npm_package_description || ''
+				content:
+					'Промышленные мониторы 17 и 19 российского производства'
+			},
+			{
+				hid: 'keywords',
+				name: 'keywords',
+				content:
+					'промышленный монитор, защищенный монитор, российский монитор'
 			}
 		],
 		link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
@@ -40,7 +47,8 @@ module.exports = {
 			src: '@/plugins/vue-particles',
 			ssr: false
 		},
-		{ src: '~plugins/smooth-scroll.js', ssr: false }
+		{ src: '~plugins/smooth-scroll.js', ssr: false },
+		{ src: '~/plugins/vue-scroll.js', ssr: false }
 	],
 	/*
 	 ** Nuxt.js modules

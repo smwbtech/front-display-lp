@@ -364,4 +364,84 @@ export default {
 .text-appear-leave-active {
 	transition: opacity .3s ease-in .5s, transform .4s ease-in .5s;
 }
+
+/* Верстка для мобильных */
+@media (320px <= width < 1024px) {
+	.display-block {
+		flex-flow: column;
+		text-align: center;
+
+		& .text-content {
+			width: 100%;
+			height: auto;
+			padding: 20px;
+
+			& .text__decore-line {
+				display: none;
+			}
+
+			& .text-content__title {
+				position: relative;
+				font-size: .6em;
+				line-height: .8;
+				margin-bottom: 40px;
+
+				& br {
+					line-height: .3em;
+				}
+
+				& span {
+					font-family: 'Clear Sans', sans-serif;
+					font-size: 2em;
+					font-weight: 100;
+				}
+
+				&:after {
+					width: calc(var(--m-column) * 3 + var(--m-gutter) * 2);
+					left: calc(50% - ((var(--m-column) * 3 + var(--m-gutter) * 2) / 2));
+					height: 10px;
+				}
+			}
+
+			& .text-content__text {
+				line-height: 1.4;
+				font-weight: 100;
+				text-align: justify;
+			}
+
+			& .catalog-btn {
+				width: calc(var(--m-column) * 10 + var(--m-gutter) * 9);
+				margin: 0 auto;
+			}
+		}
+
+		& .illustration {
+			width: 100%;
+			height: 60vh;
+
+			& .device {
+
+				top: calc(var(--m-row) + var(--m-gutter));
+				left: calc((var(--m-column) * 2 + var(--m-gutter) * 3));
+				height: calc(var(--m-row) * 4 + var(--m-gutter) * 3);
+
+				/* Картинка монитора */
+				& .device__image {
+					width: calc(var(--m-column) * 6 + var(--m-gutter) * 5);
+					height: auto;
+				}
+
+			}
+
+			& .next-screen-btn {
+				bottom: var(--m-row);
+				left: calc(50% - (var(--m-column) * 3 + var(--m-gutter) * 2) / 2);
+				width: calc(var(--m-column) * 3 + var(--m-gutter) * 2);
+				height: calc(var(--m-column) * 3 + var(--m-gutter) * 2);
+			}
+
+		}
+
+	}
+}
 </style>

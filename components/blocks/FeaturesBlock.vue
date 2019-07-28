@@ -381,4 +381,83 @@ export default {
 .text-appear-leave-active {
 	transition: all .3s ease-in;
 }
+
+/* Верстка для мобильных */
+@media (320px <= width < 1024px) {
+	.features-block {
+		padding-top: 20px;
+		flex-flow: column;
+		text-align: center;
+
+		& .illustration {
+			width: 100%;
+
+			& .image {
+				width: 100%;
+				padding: 0 10px;
+				margin-bottom: 20px;
+
+				& .image__item {
+					max-height: calc(var(--m-row) * 5 + var(--m-gutter) * 5);
+
+					&:first-of-type {
+						width: calc(var(--m-column) + var(--m-gutter));
+						transform: translateY(40px);
+					}
+
+					&:nth-of-type(2) {
+						width: calc(var(--m-column) * 8 + var(--m-gutter) * 7);
+					}
+
+					&:last-of-type {
+						width: calc(var(--m-column) * 2 + var(--m-gutter) * 3);
+						transform: translateY(-40px);
+					}
+				}
+			}
+		}
+
+		& .text {
+			width: 100%;
+			height: auto;
+			padding: var(--m-gutter);
+
+			& .text__decore-line {
+				display: none;
+			}
+
+			& .title {
+				font-size: 1em;
+				padding-top: 20px;
+			}
+
+			& .feature-text {
+
+				min-height: 80vh;
+
+				& .feature-text__title {
+					font-size: 1.2em;
+					padding-top: 20px;
+
+					&:after {
+						width: calc(var(--m-column) * 3 + var(--m-gutter) * 2);
+						left: calc(50% - ((var(--m-column) * 3 + var(--m-gutter) * 2) / 2));
+						height: 10px;
+					}
+				}
+
+				& .feature-text__text {
+					text-align: justify;
+					font-weight: 100;
+					line-height: 1.4;
+				}
+			}
+
+			& .nav {
+				width: 100%;
+			}
+
+		}
+	}
+}
 </style>

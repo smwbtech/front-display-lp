@@ -141,6 +141,25 @@ export default {
 			}
 		}
 	}
+}
 
+/* Верстка для мобильных */
+@media (320px <= width < 1024px) {
+	.models-display {
+		padding-top: calc(var(--m-row) + var(--m-gutter));
+		padding-left: calc(var(--m-column) + var(--m-gutter));
+		padding-right: calc(var(--m-column) + var(--m-gutter));
+
+		& .title {
+			font-size: 1em;
+			text-align: center;
+		}
+
+		& .models {
+			& .models__controls {
+				width: calc(var(--m-column) * 2 + var(--m-gutter) * 1);
+			}
+		}
+	}
 }
 </style>

@@ -173,4 +173,11 @@ export default {
 .modal-appear-leave-active {
 	transition: opacity .3s ease-in, transform .35s ease-out;
 }
+
+/* Верстка для мобильных */
+@media (320px <= width < 1024px) {
+	.content {
+		width: 100vw;
+	}
+}
 </style>

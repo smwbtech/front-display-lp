@@ -30,16 +30,18 @@
 				</div>
 				<p v-html="model.description.value"></p>
 				<div class="features">
-					<ul class="features-list">
-						<li
-							v-for="(feature, index) in features"
-							:key="`${index}-feature`"
-							class="features-list-item"
-						>
-							<span class="name">{{ feature.name }}</span>
-							<span class="value">{{ feature.value }}</span>
-						</li>
-					</ul>
+					<vue-scroll>
+						<ul class="features-list">
+							<li
+								v-for="(feature, index) in features"
+								:key="`${index}-feature`"
+								class="features-list-item"
+							>
+								<span class="name">{{ feature.name }}</span>
+								<span class="value">{{ feature.value }}</span>
+							</li>
+						</ul>
+					</vue-scroll>
 				</div>
 			</div>
 		</div>
@@ -171,7 +173,8 @@ export default {
 			& .romb-line {
 				position: absolute;
 				left: calc(var(--gutter) * -1);
-				height: calc(var(--row) * 6 + var(--gutter) * 6);
+				height: 80%;
+				top: 10%;
 			}
 
 			& .header {
@@ -205,16 +208,26 @@ export default {
 
 			& .features {
 
+				height: calc(var(--row) * 6 + var(--gutter) * 5);
+				overflow-y: hidden;
+
 				& .features-list {
 					list-style: none;
 					font-size: .8em;
+					padding-bottom: 40px;
 
 					& .features-list-item {
 						display: block;
 						width: 100%;
-						margin-bottom: 5px;
+						margin-bottom: 20px;
 						display: flex;
 						justify-content: space-between;
+						background-color: rgba(0,0,0,0);
+						transition: background-color .2s ease-in;
+
+						&:hover {
+							background-color: rgba(0,0,0,.1);
+						}
 
 						& .name {
 							font-family: 'Orpheus', serif;
@@ -222,6 +235,7 @@ export default {
 
 						& .value {
 							font-weight: 100;
+							padding-right: 10px;
 						}
 					}
 				}

@@ -94,4 +94,11 @@ export default {
         }
     }
 }
+
+/* Верстка для мобильных */
+@media (320px <= width < 1024px) {
+	.menu {
+		display: none;
+	}
+}
 </style>

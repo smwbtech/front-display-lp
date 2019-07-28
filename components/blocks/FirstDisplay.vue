@@ -1,7 +1,7 @@
 <template lang="html">
 	<!-- Первый дисплей -->
 	<div class="first-display">
-		<Menu />
+		<Menu class="menu" />
 		<transition name="fade-in-bottom">
 			<h1 v-if="showTitle" class="title">
 				Российские промышленные мониторы серии DNA диагональ 17” и 19’’
@@ -167,5 +167,29 @@ export default {
 .fade-in-top-enter-active,
 .fade-in-top-leave-active {
     transition: opacity .3s ease-in, transform .35s ease-in;
+}
+
+/* Верстка для мобильных */
+@media (320px <= width < 1024px) {
+	.first-display {
+
+		& .title {
+			width: calc(var(--m-column) * 10 + var(--m-gutter) * 9);
+			margin-top: 0px;
+			padding-top: 20px;
+			font-size: 1em;
+		}
+
+		& .nnz-logo {
+			width: calc(var(--m-column) * 6 + var(--gutter) * 5);
+		}
+
+		& .next-screen-btn {
+			bottom: var(--m-row);
+			left: calc(50% - (var(--m-column) * 4 + var(--m-gutter) * 3) / 2);
+			width: calc(var(--m-column) * 4 + var(--m-gutter) * 3);
+			height: calc(var(--m-column) * 4 + var(--m-gutter) * 3);
+		}
+	}
 }
 </style>
