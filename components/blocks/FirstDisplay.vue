@@ -18,13 +18,15 @@
 		</transition>
 		<!-- блок с фоном вырезанной роборуки -->
 		<div alt="" class="arm" />
-		<vue-particles
-			class="particles"
-			color="#0bdbdd"
-			:particle-size="6"
-			:line-linked="false"
-			shapeType="polygon"
-		/>
+		<no-ssr>
+			<vue-particles
+				class="particles"
+				color="#0bdbdd"
+				:particle-size="6"
+				:line-linked="false"
+				shapeType="polygon"
+			/>
+		</no-ssr>
 		<!-- логотип Ниеншанц-Автоматика -->
 		<transition name="fade-in" mode="out-in">
 			<img
