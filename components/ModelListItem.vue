@@ -76,9 +76,11 @@ export default {
 
     & .model-item__image {
         max-width: 90%;
+		min-height: 1px;
     }
 
 	& .model-titel__desc {
+		width: 90%;
 		font-size: .8em;
 		font-weight: 100;
 		line-height: 1.4;
