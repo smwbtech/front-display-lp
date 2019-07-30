@@ -61,14 +61,19 @@ export default {
 
 	&:before {
 		border: 2px dotted #fff;
-		width: 135%;
-		height: 135%;
+		width: 130%;
+		height: 130%;
+		top: -15%;
+		left: -15%;
 	}
 
 	&:after {
 		border: 1px solid #fff;
 		width: 160%;
 		height: 160%;
+		top: -30%;
+		left: -30%;
+
 	}
 
 	/* Анимированная кнопка */
