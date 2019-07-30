@@ -1,6 +1,8 @@
 <template lang="html">
 	<section class="models-display">
-		<h2 class="title">модельный ряд промышленных мониторов DNA</h2>
+		<h2 class="title">
+			модельный ряд промышленных мониторов DNA
+		</h2>
 		<div class="models">
 			<ArrowLeft
 				:class="[
@@ -37,15 +39,14 @@
 import ModelListItem from '@/components/ModelListItem.vue'
 
 export default {
+	components: {
+		ModelListItem
+	},
 	props: {
 		items: {
 			type: Array,
 			required: true
 		}
-	},
-
-	components: {
-		ModelListItem
 	},
 
 	data() {
@@ -70,6 +71,10 @@ export default {
 		}
 	},
 
+	mounted() {
+		this.window = window
+	},
+
 	methods: {
 		moveCarousel(i) {
 			if (i > 0 && this.slide + 3 < this.items.length) {
@@ -80,10 +85,6 @@ export default {
 				this.left += this.column * 5 + 20 * 4 + this.marginSides
 			}
 		}
-	},
-
-	mounted() {
-		this.window = window
 	}
 }
 </script>

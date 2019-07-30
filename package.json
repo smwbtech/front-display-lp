@@ -25,6 +25,8 @@
 		"vuescroll": "^4.13.1"
 	},
 	"devDependencies": {
+		"@babel/plugin-proposal-object-rest-spread": "^7.4.3",
+		"@babel/preset-env": "^7.4.3",
 		"@nuxtjs/eslint-config": "^0.0.1",
 		"@nuxtjs/eslint-module": "^0.0.1",
 		"@vue/test-utils": "^1.0.0-beta.27",
@@ -44,11 +46,12 @@
 		"eslint-plugin-vue": "^5.2.2",
 		"jest": "^24.1.0",
 		"nodemon": "^1.18.9",
+		"nuxt-svg-loader": "^1.0.1",
 		"postcss": "^7.0.17",
+		"postcss-calc": "^7.0.1",
 		"postcss-preset-env": "^6.7.0",
 		"prettier": "^1.16.4",
 		"vue-jest": "^3.0.3",
-		"vue-particles": "^1.0.9",
-		"vue-svg-loader": "^0.12.0"
+		"vue-particles": "^1.0.9"
 	}
 }

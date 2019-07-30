@@ -1,9 +1,13 @@
 <template lang="html">
 	<div class="model-item">
 		<img :src="model.previewPhoto.value" alt="" class="model-item__image" />
-		<h4 class="model-item__title">{{ model.name }}</h4>
-		<p class="model-titel__desc" v-html="model.description.value"></p>
-		<p class="price">{{ this.price }}</p>
+		<h4 class="model-item__title">
+			{{ model.name }}
+		</h4>
+		<p class="model-titel__desc" v-html="model.description.value" />
+		<p class="price">
+			{{ this.price }}
+		</p>
 		<p
 			:class="[
 				parseInt(this.model.inStock.value) > 0 ? 'stock_in' : '',
@@ -13,14 +17,14 @@
 			{{ this.inStock }}
 		</p>
 		<div class="controls">
-			<ActionButton
-				><a
+			<ActionButton>
+				<a
 					href="#"
 					class="more"
 					@click.prevent="$emit('more-info', index)"
 					>подробнее</a
-				></ActionButton
-			>
+				>
+			</ActionButton>
 			<ActionButton>
 				<a :href="model.url" target="_blank" class="buy">купить</a>
 			</ActionButton>

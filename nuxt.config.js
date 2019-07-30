@@ -1,3 +1,5 @@
+const postcssCalc = require('postcss-calc')
+
 module.exports = {
 	mode: 'universal',
 	server: {
@@ -27,7 +29,13 @@ module.exports = {
 					'промышленный монитор, защищенный монитор, российский монитор'
 			}
 		],
-		link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+		link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+		script: [
+			{
+				src:
+					'https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver'
+			}
+		]
 	},
 	/*
 	 ** Customize the progress-bar color
@@ -59,7 +67,8 @@ module.exports = {
 	modules: [
 		// Doc: https://axios.nuxtjs.org/usage
 		'@nuxtjs/axios',
-		'@nuxtjs/eslint-module'
+		'@nuxtjs/eslint-module',
+		'nuxt-svg-loader'
 	],
 	/*
 	 ** Axios module configuration
@@ -70,6 +79,7 @@ module.exports = {
 	 ** Build configuration
 	 */
 	build: {
+		transpile: ['vue-particles', 'vue-svg-loader'],
 		postcss: {
 			// Add plugin names as key and arguments as value
 			// Install them before as dependencies with npm or yarn
@@ -90,6 +100,9 @@ module.exports = {
 				// Change the postcss-preset-env settings
 				autoprefixer: {
 					grid: true
+				},
+				insertAfter: {
+					'custom-properties': postcssCalc
 				}
 			}
 		},
@@ -103,7 +116,30 @@ module.exports = {
 			svgRule.test = /\.(png|jpe?g|gif|webp)$/
 			config.module.rules.push({
 				test: /\.svg$/,
-				loader: 'vue-svg-loader'
+				use: 'babel-loader',
+				oneOf: [
+					{
+						resourceQuery: /inline/, // foo.svg?inline
+						loader: 'vue-svg-loader',
+						options: {
+							svgo: {
+								plugins: [
+									{ removeDoctype: true },
+									{ removeComments: true },
+									{ removeViewBox: false }
+								]
+							}
+						}
+					},
+					{
+						loader: 'url-loader',
+						options: {
+							limit: 1000, // 1KO
+							name: 'img/[name].[hash:7].[ext]'
+						}
+					}
+				],
+				exclude: /(node_modules)/
 			})
 
 			if (ctx.dev && ctx.isClient) {

@@ -11,12 +11,12 @@
 		<!-- Слайдер с особенностями -->
 		<PageBlock><FeaturesBlock /></PageBlock>
 		<!-- Список моделей -->
-		<PageBlock
-			><ModelsBlock
+		<PageBlock>
+			<ModelsBlock
 				:items="items"
 				@show-modal="modalWindowHandler"
-			></ModelsBlock
-		></PageBlock>
+			></ModelsBlock>
+		</PageBlock>
 
 		<footer class="footer">
 			<a href="https://nnz-ipc.ru/" target="_blank" class="logo">

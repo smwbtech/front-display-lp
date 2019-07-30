@@ -1,6 +1,6 @@
 <template lang="html">
 	<section class="full-view">
-		<CloseButton class="close" @click="$emit('close-modal')"></CloseButton>
+		<CloseButton class="close" @click="$emit('close-modal')" />
 		<div class="content">
 			<!-- Фото девайсов -->
 			<div class="illustration">
@@ -19,16 +19,18 @@
 			</div>
 			<!-- Текстовый контент -->
 			<div class="text">
-				<RombLine class="romb-line"></RombLine>
+				<RombLine class="romb-line" />
 				<div class="header">
-					<h1 class="title">{{ model.name }}</h1>
+					<h1 class="title">
+						{{ model.name }}
+					</h1>
 					<ActionButton>
 						<a :href="model.url" target="_blank" class="order">
 							заказать</a
 						>
 					</ActionButton>
 				</div>
-				<p v-html="model.description.value"></p>
+				<p v-html="model.description.value" />
 				<div class="features">
 					<vue-scroll>
 						<ul class="features-list">
@@ -55,10 +57,6 @@ export default {
 			type: Object,
 			required: true
 		}
-	},
-
-	mounted() {
-		this.currentIllustration = this.model.previewPhoto.value
 	},
 
 	data() {
@@ -100,6 +98,10 @@ export default {
 			})
 			return features
 		}
+	},
+
+	mounted() {
+		this.currentIllustration = this.model.previewPhoto.value
 	},
 
 	methods: {
@@ -172,7 +174,7 @@ export default {
 
 			& .romb-line {
 				position: absolute;
-				left: calc(var(--gutter) * -1);
+				left: calc(-1 * var(--gutter));
 				height: 80%;
 				top: 10%;
 			}

@@ -294,7 +294,7 @@ export default {
         /* Декоративная линия */
         & .text__decore-line {
             height: 100%;
-            left: calc(var(--column) * -1);
+            left: calc(-1 * var(--column));
         }
 
 		/* Навигация */

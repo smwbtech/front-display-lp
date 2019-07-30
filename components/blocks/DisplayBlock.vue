@@ -279,7 +279,7 @@ export default {
 			position: absolute;
 			width: 100%;
 			top: calc(var(--row) * 2 + var(--gutter) * 2);
-			left: calc((var(--column) * 3 + var(--gutter) * 3) * -1);
+			left: calc(-1 * (var(--column) * 3 + var(--gutter) * 3));
 			height: calc(var(--row) * 5 + var(--gutter) * 4);
 
 			/* Картинка монитора */
