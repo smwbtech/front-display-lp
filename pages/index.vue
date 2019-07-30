@@ -179,5 +179,22 @@ export default {
 	.content {
 		width: 100vw;
 	}
+
+	.footer {
+		flex-flow: column;
+
+		& .logo {
+			width: 50%;
+		}
+
+		& .adress-list {
+			flex-flow: column;
+
+			& li {
+				margin-bottom: 20px;
+			}
+		}
+	}
+
 }
 </style>
