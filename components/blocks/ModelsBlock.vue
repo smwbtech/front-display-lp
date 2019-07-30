@@ -147,6 +147,7 @@ export default {
 /* Верстка для мобильных */
 @media (320px <= width < 1024px) {
 	.models-display {
+		width: 100vw;
 		padding-top: calc(var(--m-row) + var(--m-gutter));
 		padding-left: calc(var(--m-column) + var(--m-gutter));
 		padding-right: calc(var(--m-column) + var(--m-gutter));

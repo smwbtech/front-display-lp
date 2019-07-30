@@ -178,6 +178,7 @@ export default {
 @media (320px <= width < 1024px) {
 	.content {
 		width: 100vw;
+		overflow-x: hidden;
 	}
 
 	.footer {
