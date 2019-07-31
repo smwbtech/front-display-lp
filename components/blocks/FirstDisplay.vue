@@ -4,8 +4,7 @@
 		<Menu class="menu" />
 		<transition name="fade-in-bottom">
 			<h1 v-if="showTitle" class="title">
-				Российские промышленные мониторы серии DNA диагональ 17” и 19’’
-				производства «Ниешанц-Автоматика»
+				Российские промышленные мониторы<br />серия DNA 17” / 19”
 			</h1>
 		</transition>
 		<!-- Кнопка перехода на следующий экран -->
@@ -90,6 +89,10 @@ export default {
         width: calc(var(--column) * 10 + var(--gutter) * 9);
         margin: 0 auto;
         margin-top: calc(var(--row) + var(--gutter));
+
+		& br {
+			line-height: 1.2;
+		}
     }
 	/* Отдельный фон с роборукой */
     & .arm {

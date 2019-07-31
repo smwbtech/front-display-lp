@@ -131,6 +131,7 @@ export default {
 	},
 
 	mounted() {
+		// После того, как компонент был монтирован, мониторим его попадание во вьюпорт
 		this.observeScroll(this.$el)
 	},
 

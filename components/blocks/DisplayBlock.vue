@@ -6,7 +6,7 @@
 			<transition name="line-appear" mode="out-in">
 				<RombLine v-if="isObserved" class="text__decore-line" />
 			</transition>
-
+			<!-- Заголовок -->
 			<transition name="title-appear" mode="out-in">
 				<h2 v-if="isObserved" class="text-content__title">
 					промышленные мониторы росcийского производства<br /><span
@@ -14,7 +14,7 @@
 					>
 				</h2>
 			</transition>
-
+			<!-- Общее описание монитора -->
 			<transition name="text-appear" mode="out-in">
 				<p v-if="isObserved" class="text-content__text">
 					Мониторы серии DNA были разработаны и сконструированы для
@@ -29,6 +29,7 @@
 				</p>
 			</transition>
 
+			<!-- Кнопка перехода в каталог на сайт nnz-ipc.ru -->
 			<transition name="text-appear" mode="out-in">
 				<ActionButton v-if="isObserved" class="catalog-btn">
 					<a
@@ -44,6 +45,7 @@
 		<!-- Блок с иллюстрацией -->
 		<div class="illustration">
 			<div class="device">
+				<!-- Изображение монитора -->
 				<transition name="monitor-appear" mode="out-in">
 					<img
 						v-if="isObserved"
@@ -52,6 +54,7 @@
 						alt=""
 					/>
 				</transition>
+				<!-- Ромбы -->
 				<Romb
 					v-for="(romb, index) in rombs"
 					:key="`${index}-rmb`"
@@ -60,6 +63,7 @@
 					:showCondition="isObserved"
 				/>
 			</div>
+			<!-- Кнопка перехода на следующий экран -->
 			<NextScreenButton
 				class="next-screen-btn"
 				:elem="'.features-block'"
@@ -78,7 +82,9 @@ export default {
 
 	data() {
 		return {
+			// Попал ли блок во вьюпорт
 			isObserved: false,
+			// Объекты робов
 			rombs: [
 				{
 					class: 'romb_top',
@@ -167,6 +173,7 @@ export default {
 	},
 
 	mounted() {
+		// После того, как компонент был монтирован, мониторим его попадание во вьюпорт
 		this.observeScroll(this.$el)
 	},
 
@@ -224,6 +231,7 @@ export default {
 		& .text-content__title {
 			position: relative;
 			font-size: 1.2em;
+			letter-spacing: 1.5px;
 			line-height: .8;
 			margin-bottom: 40px;
 
@@ -233,7 +241,7 @@ export default {
 
 			& span {
 				font-family: 'Clear Sans', sans-serif;
-				font-size: 1.5em;
+				font-size: 1.4em;
 				font-weight: 100;
 			}
 
