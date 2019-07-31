@@ -74,6 +74,10 @@ export default {
 			return total.length > 1 ? total : []
 		},
 
+		isMobile() {
+			return window && window.innerWidth < 1024
+		},
+
 		smallImageStyle() {
 			return {
 				width: `${100 / this.images.length}%`
@@ -247,5 +251,62 @@ export default {
 
 	}
 
+}
+
+@media (320px <= width < 1024px) {
+	.full-view {
+		flex-flow: column;
+		overflow-y: scroll;
+
+		& .close {
+			width: 20px;
+			height: 20px;
+		}
+
+		& .content {
+			flex-flow: column;
+
+			& .illustration {
+				width: 100vw;
+				padding: 0 calc(var(--m-column) + var(--m-gutter));
+
+				& .main-image-container {
+					width: 100%;
+				}
+
+				& .small {
+					margin: 10px 5px;
+				}
+			}
+
+			& .text {
+				width: 100%;
+				padding: 10px calc(var(--m-column) + var(--m-gutter));
+
+				& .romb-line {
+					display: none;
+				}
+
+				& .header {
+
+					& .title {
+						font-size: 1em;
+
+						&:after {
+							width: calc(var(--m-column) * 4 + var(--m-gutter));
+						}
+					}
+				}
+
+				& .features {
+					width: 100%;
+
+					& .features-list {
+						font-size: .7em;
+					}
+				}
+			}
+		}
+	}
 }
 </style>
