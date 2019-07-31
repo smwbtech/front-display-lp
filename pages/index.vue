@@ -17,7 +17,7 @@
 				@show-modal="modalWindowHandler"
 			></ModelsBlock>
 		</PageBlock>
-
+		<!-- Footer -->
 		<footer class="footer">
 			<a href="https://nnz-ipc.ru/" target="_blank" class="logo">
 				<img
@@ -91,15 +91,21 @@ export default {
 
 	data() {
 		return {
-			showModalWindow: false,
-			tokenReceived: false,
-			dataLoaded: false,
-			sectionId: 297677,
-			currentIndex: 0,
-			items: []
+			showModalWindow: false, // true - показываем окно с полной информацией о девайск
+			tokenReceived: false, // true - токен авторизации получен
+			dataLoaded: false, // true - данные о девайсах загружены
+			sectionId: 297677, // id секции каталога nnz-ipc.ru, откуда получаем информацию о товарах
+			currentIndex: 0, // девайс, который просматриваем
+			items: [] // массив, содержащий объекты товаров
 		}
 	},
 
+	/**
+	 * Получение токена авторизации api.nnzipc.ru
+	 * получение списка мониторов серии Front Display
+	 * @async
+	 * @return {Promise.<array>} - массив содержащий объекты товаров
+	 */
 	async asyncData() {
 		const token = await getToken()
 		const items = await getItems(token)
@@ -107,6 +113,12 @@ export default {
 	},
 
 	methods: {
+		/**
+		 * Показываем модальное окно с
+		 * полной информацией о товаре
+		 * @param  {number} index - порядковый индекс товара в массиве
+		 * @return {udnefined}
+		 */
 		modalWindowHandler(index) {
 			this.currentIndex = index
 			this.showModalWindow = true
@@ -116,7 +128,7 @@ export default {
 </script>
 
 <style lang="css" scoped>
-
+/* Footer */
 .footer {
 	padding: 20px calc(var(--column) * 2 + var(--gutter));
 	background: linear-gradient(45deg, var(--marine), var(--blue));
@@ -125,6 +137,7 @@ export default {
 	justify-content: space-between;
 	align-items: center;
 
+	/* Логотип */
 	& .logo {
 		display: block;
 		width: calc(var(--column) * 4 + var(--gutter) * 3);
@@ -134,6 +147,7 @@ export default {
 		}
 	}
 
+	/* Список адресов */
 	& .adress-list {
 		display: flex;
 		justify-content: space-between;
@@ -142,7 +156,7 @@ export default {
 		width: calc(var(--column) * 15 + var(--gutter) * 15);
 		text-align: center;
 		align-items: center;
-
+		/* Город */
 		& .city {
 			font-family: 'Orpheus', serif;
 		}
@@ -155,7 +169,10 @@ export default {
 			text-decoration: none;
 		}
 	}
+	/* end Список адресов */
 }
+
+/* end Footer */
 
 /* Переходы и анимации */
 
