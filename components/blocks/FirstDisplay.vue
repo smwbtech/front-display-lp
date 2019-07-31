@@ -175,6 +175,9 @@ export default {
 @media (320px <= width < 1024px) {
 	.first-display {
 
+		background-repeat: no-repeat;
+		background-position: center center;
+
 		& .title {
 			width: calc(var(--m-column) * 10 + var(--m-gutter) * 9);
 			margin-top: 0px;
