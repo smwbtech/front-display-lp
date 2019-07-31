@@ -422,7 +422,7 @@ export default {
 			& .device {
 
 				top: calc(var(--m-row) + var(--m-gutter));
-				left: calc((var(--m-column) * 2 + var(--m-gutter) * 3));
+				left: calc((var(--m-column) * 3 + var(--m-gutter) * 3));
 				height: calc(var(--m-row) * 4 + var(--m-gutter) * 3);
 
 				/* Картинка монитора */
