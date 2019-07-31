@@ -268,6 +268,7 @@ export default {
 
 			& .illustration {
 				width: 100vw;
+				min-height: 80vh;
 				padding: 0 calc(var(--m-column) + var(--m-gutter));
 
 				& .main-image-container {
