@@ -153,6 +153,26 @@ export default {
 @media (320px <= width < 1024px) {
 	.model-item {
 		width: calc(var(--m-column) * 8 + var(--m-gutter) * 7);
+		margin: 10px;
+		padding: 5px;
+
+		& .model-titel__desc {
+			font-size: .7em;
+			text-align: center;
+			line-height: 1.2;
+		}
+
+		& .controls {
+
+			flex-flow: column;
+			justify-content: center;
+			align-items: center;
+
+			& > * {
+				width: 90%;
+				margin-bottom: 10px;
+			}
+		}
 	}
 }
 </style>

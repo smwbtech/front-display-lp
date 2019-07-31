@@ -161,6 +161,10 @@ export default {
 			& .models__controls {
 				width: calc(var(--m-column) * 2 + var(--m-gutter) * 1);
 			}
+
+			& .wrapper {
+				min-height: 100vh;
+			}
 		}
 	}
 }
