@@ -1,25 +1,23 @@
 <template lang="html">
+	<!-- Меню -->
 	<nav class="menu">
-		<img src="/img/fd_logo.svg" alt="" class="logo" />
+		<!-- Логотип -->
+		<img
+			src="/img/fd_logo.svg"
+			alt="Логотип линейки промышленных мониторов Front Display"
+			class="logo"
+		/>
 		<ul class="menu-list">
+			<!-- Навигация по странице -->
 			<li
+				v-for="item in menuItems"
+				:key="item.name"
 				class="menu-list__item"
-				@click.prevent="scrollTo('.display-block')"
+				@click.prevent="scrollTo(item.target)"
 			>
-				<a href="#">монитор</a>
+				<a href="#">{{ item.name }}</a>
 			</li>
-			<li
-				class="menu-list__item"
-				@click.prevent="scrollTo('.features-block')"
-			>
-				<a href="#">особенности</a>
-			</li>
-			<li
-				class="menu-list__item"
-				@click.prevent="scrollTo('.models-display')"
-			>
-				<a href="#">модели</a>
-			</li>
+			<!-- Кнопка купить -->
 			<li class="menu-list__item">
 				<ActionButton class="buy-btn">
 					<a
@@ -42,7 +40,32 @@ export default {
 		ActionButton
 	},
 
+	data() {
+		return {
+			// Массив с объектами элементов навигации по странице
+			menuItems: [
+				{
+					name: 'монитор',
+					target: '.display-block'
+				},
+				{
+					name: 'особенности',
+					target: '.features-block'
+				},
+				{
+					name: 'модели',
+					target: '.models-display'
+				}
+			]
+		}
+	},
+
 	methods: {
+		/**
+		 * Скролл до нужного блока
+		 * @param  {string} selector - сss селектор блока
+		 * @return {undefined}
+		 */
 		scrollTo(selector) {
 			document
 				.querySelector(selector)
@@ -53,6 +76,7 @@ export default {
 </script>
 
 <style lang="css" scoped>
+/* Блок меню */
 .menu {
     padding-top: 20px;
     padding-left: calc(var(--column) * 2 + var(--gutter) * 2);
@@ -61,10 +85,12 @@ export default {
     width: 100%;
     z-index: 1000;
 
+	/* Лого Front-Display */
     & .logo {
         margin-right: calc(var(--column) + var(--gutter) * 2);
     }
 
+	/* Список разделов навигации */
     & .menu-list {
         display: flex;
         list-style: none;
@@ -72,6 +98,7 @@ export default {
         width: 100%;
         align-items: center;
 
+		/* Раздел */
         & .menu-list__item {
             display: block;
             margin-right: calc(var(--column) + var(--gutter) * 2);
@@ -92,8 +119,11 @@ export default {
 				}
             }
         }
+		/* end Раздел */
     }
+	/* end Список разделов навигации */
 }
+/* end Блок меню */
 
 /* Верстка для мобильных */
 @media (320px <= width < 1024px) {
