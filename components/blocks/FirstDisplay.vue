@@ -183,7 +183,8 @@ export default {
 		}
 
 		& .nnz-logo {
-			width: calc(var(--m-column) * 6 + var(--gutter) * 5);
+			width: calc(var(--m-column) * 6 + var(--m-gutter) * 5);
+			left: calc(var(--m-column) * 3 + var(--m-gutter) * 3);
 		}
 
 		& .next-screen-btn {
