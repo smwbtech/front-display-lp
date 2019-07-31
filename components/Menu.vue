@@ -87,7 +87,9 @@ export default {
 
 	/* Лого Front-Display */
     & .logo {
+		display: block;
         margin-right: calc(var(--column) + var(--gutter) * 2);
+		width: calc(var(--column) * 3 + var(--row) * 3);
     }
 
 	/* Список разделов навигации */
@@ -104,7 +106,7 @@ export default {
             margin-right: calc(var(--column) + var(--gutter) * 2);
 
             & > a {
-                font-size: 1.2em;
+                font-size: 1.5em;
                 font-weight: 500;
                 text-decoration: none;
             }
@@ -115,6 +117,7 @@ export default {
 				& .buy {
 					display: block;
 					text-decoration: none;
+					font-size: 1.5em;
 					padding: 10px;
 				}
             }
