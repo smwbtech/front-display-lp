@@ -4,9 +4,11 @@
 		<div class="content">
 			<!-- Фото девайсов -->
 			<div class="illustration">
+				<!-- Активное фото -->
 				<div class="main-image-container">
 					<img :src="currentIllustration" alt="" class="main-img" />
 				</div>
+				<!-- Превью фотографий -->
 				<img
 					v-for="(photo, index) in images"
 					:key="`${index}-img`"
@@ -19,7 +21,9 @@
 			</div>
 			<!-- Текстовый контент -->
 			<div class="text">
+				<!-- Декторативный разделитель -->
 				<RombLine class="romb-line" />
+				<!-- Название модели и кнопка купить -->
 				<div class="header">
 					<h1 class="title">
 						{{ model.name }}
@@ -30,7 +34,9 @@
 						>
 					</ActionButton>
 				</div>
+				<!-- Описание модели -->
 				<p v-html="model.description.value" />
+				<!-- Характеристики модели -->
 				<div class="features">
 					<vue-scroll>
 						<ul class="features-list">
@@ -53,6 +59,7 @@
 <script>
 export default {
 	props: {
+		// Объек модели дисплея
 		model: {
 			type: Object,
 			required: true
@@ -61,11 +68,17 @@ export default {
 
 	data() {
 		return {
+			// Текущая активная иллюстрация
 			currentIllustration: ''
 		}
 	},
 
 	computed: {
+		/**
+		 * Объеденяет в массив превью и
+		 * остальные фото в один массив
+		 * @return {array} - массив содержащий строки со ссылками на фото модели
+		 */
 		images() {
 			const photos = this.model.photos
 				? this.model.photos.value.slice(0, 3)
@@ -74,16 +87,33 @@ export default {
 			return total.length > 1 ? total : []
 		},
 
+		/**
+		 * Определения, является ли устройство
+		 * мобильным или нет (в зависимости от ширины экрана)
+		 * @return {Boolean} - true - мобильное, false - не мобильное
+		 */
 		isMobile() {
 			return window && window.innerWidth < 1024
 		},
 
+		/**
+		 * Возвращает объект стилей для превью фотографий в зависимости
+		 * от количество изображений в this.images
+		 * @return {object} - объект стилей превью
+		 */
 		smallImageStyle() {
 			return {
 				width: `${100 / this.images.length}%`
 			}
 		},
 
+		/**
+		 * Форматирование и приведение характеристик
+		 * к одному виду.
+		 * @return {array} - массив характеристик, содержащий объект
+		 * 					 @property {string} name 	- название характеристики
+		 * 					 @property {string} value	- значение характеристики для данной модели
+		 */
 		features() {
 			const engFields = {
 				'i18n::field-brightness': 'Яркость',
@@ -105,10 +135,16 @@ export default {
 	},
 
 	mounted() {
+		// Устанавливаем фото, которое выбрано как превью для сайта nnz-ipc.ru, как активное
 		this.currentIllustration = this.model.previewPhoto.value
 	},
 
 	methods: {
+		/**
+		 * Изменяем активное изображение
+		 * @param  {number} i - индекс изображения в массиве this.images
+		 * @return {undefined}
+		 */
 		changeImage(i) {
 			this.currentIllustration = this.images[i]
 		}
@@ -129,6 +165,7 @@ export default {
 	padding-top: calc(var(--row) + var(--gutter));
     background-color: #fff;
 
+	/* Кнопка закрыть */
     & .close {
         position: absolute;
         top: 20px;
@@ -144,9 +181,11 @@ export default {
 		}
     }
 
+	/* Контент модального окна */
 	& .content {
 		display: flex;
 
+		/* Блок фотографий */
 		& .illustration {
 
 			width: calc(var(--column) * 12 + var(--gutter) * 11);
@@ -156,6 +195,7 @@ export default {
 			justify-content: center;
 			align-items: center;
 
+			/* Главное изображение */
 			& .main-image-container {
 				min-height: calc(var(--row) * 6 + var(--gutter) * 5);
 
@@ -165,12 +205,14 @@ export default {
 				}
 			}
 
+			/* Превью */
 			& .small {
 				display: block;
 				cursor: pointer;
 			}
-		}
+		} /* end Блок фотографий */
 
+		/* Блок текстового контента */
 		& .text {
 			width: calc(var(--column) * 9 + var(--gutter) * 9);
 			padding-left: calc(var(--column) + var(--gutter));
@@ -183,12 +225,14 @@ export default {
 				top: 10%;
 			}
 
+			/* Заголовок */
 			& .header {
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
 				margin-bottom: 60px;
 
+				/* Название модели */
 				& .title {
 					position: relative;
 
@@ -205,23 +249,27 @@ export default {
 					}
 				}
 
+				/* Кнопка купить */
 				& .order {
 					padding: 10px;
 					display: block;
 					text-decoration: none;
 				}
-			}
+			} /* end Заголовок */
 
+			/* Характеристики */
 			& .features {
 
 				height: calc(var(--row) * 6 + var(--gutter) * 5);
 				overflow-y: hidden;
 
+				/* Список характеристик */
 				& .features-list {
 					list-style: none;
 					font-size: .8em;
 					padding-bottom: 40px;
 
+					/* Блок характеристики */
 					& .features-list-item {
 						display: block;
 						width: 100%;
@@ -235,21 +283,24 @@ export default {
 							background-color: rgba(0,0,0,.1);
 						}
 
+						/* Название характеристики */
 						& .name {
 							font-family: 'Orpheus', serif;
 						}
 
+						/* Значение характеристики */
 						& .value {
 							font-weight: 100;
 							padding-right: 10px;
 						}
-					}
+					} /* end Блок характеристики */
 				}
 
-			}
-		}
+			} /* end Характеристики */
 
-	}
+		} /* end Блок текстового контента */
+
+	} /* end Контент модального окна */
 
 }
 
