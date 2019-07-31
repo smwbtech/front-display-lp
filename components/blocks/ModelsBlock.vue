@@ -53,19 +53,31 @@ export default {
 		return {
 			slide: 0,
 			left: 0,
-			marginSides: 80,
 			window: null
 		}
 	},
 
 	computed: {
 		column() {
-			return this.window ? (window.innerWidth - 20 * 23) / 24 : 0
+			if (this.window) {
+				return this.window.innerWidth >= 1024
+					? (window.innerWidth - 20 * 23) / 24
+					: (window.innerWidth - 10 * 11) / 12
+			}
+			return 0
+		},
+
+		marginSides() {
+			if (this.window) {
+				return this.window.innerWidth >= 1024 ? 80 : 20
+			}
+			return 0
 		},
 
 		styleObj() {
 			return {
-				width: `${this.items.length * 100}%`,
+				width: `${this.items.length * 100 +
+					this.items.length * this.marginSides}%`,
 				left: `${this.left}px`
 			}
 		}
@@ -79,10 +91,16 @@ export default {
 		moveCarousel(i) {
 			if (i > 0 && this.slide + 3 < this.items.length) {
 				this.slide++
-				this.left -= this.column * 5 + 20 * 4 + this.marginSides
+				this.left -=
+					this.window.innerWidth >= 1024
+						? this.column * 5 + 20 * 4 + this.marginSides
+						: this.column * 8 + 10 * 7 + this.marginSides
 			} else if (i < 0 && this.slide > 0) {
 				this.slide--
-				this.left += this.column * 5 + 20 * 4 + this.marginSides
+				this.left +=
+					this.window.innerWidth >= 1024
+						? this.column * 5 + 20 * 4 + this.marginSides
+						: this.column * 8 + 10 * 7 + this.marginSides
 			}
 		}
 	}
@@ -149,8 +167,8 @@ export default {
 	.models-display {
 		width: 100vw;
 		padding-top: calc(var(--m-row) + var(--m-gutter));
-		padding-left: calc(var(--m-column) + var(--m-gutter));
-		padding-right: calc(var(--m-column) + var(--m-gutter));
+		padding-left: 0;
+		padding-right: 0;
 
 		& .title {
 			font-size: 1em;
@@ -164,6 +182,7 @@ export default {
 
 			& .wrapper {
 				min-height: 100vh;
+				width: calc(var(--m-column) * 9 + var(--m-gutter) * 8);
 			}
 		}
 	}
