@@ -1,13 +1,18 @@
 <template lang="html">
 	<div class="model-item">
+		<!-- Превью девайса -->
 		<img :src="model.previewPhoto.value" alt="" class="model-item__image" />
+		<!-- Название модели -->
 		<h4 class="model-item__title">
 			{{ model.name }}
 		</h4>
+		<!-- Описание -->
 		<p class="model-titel__desc" v-html="model.description.value" />
+		<!-- Цена -->
 		<p class="price">
 			{{ this.price }}
 		</p>
+		<!-- Наличие на складе -->
 		<p
 			:class="[
 				parseInt(this.model.inStock.value) > 0 ? 'stock_in' : '',
@@ -16,7 +21,9 @@
 		>
 			{{ this.inStock }}
 		</p>
+		<!-- Кнопки действия -->
 		<div class="controls">
+			<!-- Подробнее -->
 			<ActionButton>
 				<a
 					href="#"
@@ -25,6 +32,7 @@
 					>подробнее</a
 				>
 			</ActionButton>
+			<!-- Купить -->
 			<ActionButton>
 				<a :href="model.url" target="_blank" class="buy">купить</a>
 			</ActionButton>
@@ -35,10 +43,12 @@
 <script>
 export default {
 	props: {
+		// Объект модели дисплея
 		model: {
 			type: Object,
 			required: true
 		},
+		// Порядковый индекс в массиве моделей
 		index: {
 			type: Number,
 			required: true
@@ -46,11 +56,21 @@ export default {
 	},
 
 	computed: {
+		/**
+		 * Возвращает цену модели или строчку
+		 * 'по запросу', если цена не указана
+		 * @return {string} - цена модели
+		 */
 		price() {
 			const price = parseFloat(this.model.price.value)
 			return price > 0 ? price : ' по запросу'
 		},
 
+		/**
+		 * Возвращает строчку со статусом
+		 * наличия модели на складе
+		 * @return {string} - 'в наличие' если модель есть на складе, 'под заказ' - если нет
+		 */
 		inStock() {
 			return parseInt(this.model.inStock.value) > 0
 				? 'в наличии'
@@ -74,11 +94,13 @@ export default {
     box-shadow: 3px 3px 12px rgba(0,0,0,.1);
 	text-align: center;
 
+	/* Превью изображения */
     & .model-item__image {
         max-width: 90%;
 		min-height: 1px;
     }
 
+	/* Описание модели */
 	& .model-titel__desc {
 		width: 90%;
 		font-size: .8em;
@@ -87,6 +109,7 @@ export default {
 		text-align: justify;
 	}
 
+	/* Цена и наличие */
 	& .price,
 	& .stock {
 		position: relative;
@@ -107,7 +130,7 @@ export default {
 			background-size: 90%;
 			background-repeat: no-repeat;
 		}
-	}
+	}/* end Цена и наличие */
 
 	& .price {
 		margin-bottom: 5px;
@@ -129,6 +152,7 @@ export default {
 		}
 	}
 
+	/* Кнопки действия */
     & .controls {
         display: flex;
 		width: 100%;
@@ -147,7 +171,7 @@ export default {
 			padding: 10px;
 			text-decoration: none;
 		}
-    }
+    } /* end Кнопки действия */
 }
 
 @media (320px <= width < 1024px) {
