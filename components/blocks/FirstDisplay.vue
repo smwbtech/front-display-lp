@@ -175,7 +175,7 @@ export default {
 @media (320px <= width < 1024px) {
 	.first-display {
 		width: calc(var(--m-column) * 12 + var(--m-gutter) * 11);
-		background-size: auto;
+		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center center;
 
