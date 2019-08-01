@@ -214,7 +214,7 @@ export default {
 
 		/* Блок текстового контента */
 		& .text {
-			width: calc(var(--column) * 9 + var(--gutter) * 9);
+			width: calc(var(--column) * 11 + var(--gutter) * 10);
 			padding-left: calc(var(--column) + var(--gutter));
 			position: relative;
 
@@ -291,7 +291,7 @@ export default {
 						/* Значение характеристики */
 						& .value {
 							font-weight: 100;
-							padding-right: 10px;
+							padding-right: 20px;
 						}
 					} /* end Блок характеристики */
 				}
