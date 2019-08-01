@@ -417,6 +417,11 @@ export default {
 		flex-flow: column;
 		text-align: center;
 
+		& .logo,
+		& .logo-local {
+			display: none;
+		}
+
 		& .text-content {
 			width: 100%;
 			height: auto;
