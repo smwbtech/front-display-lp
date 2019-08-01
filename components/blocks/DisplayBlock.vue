@@ -1,5 +1,11 @@
 <template lang="html">
 	<section id="display-block" class="display-block">
+		<!-- Лого Front Display -->
+		<img
+			class="logo"
+			src="/img/fd_logo_colored.svg"
+			alt="Логотип Front Display"
+		/>
 		<!-- Текстовый блок -->
 		<div class="text-content">
 			<!-- Декоративная линия -->
@@ -17,15 +23,22 @@
 			<!-- Общее описание монитора -->
 			<transition name="text-appear" mode="out-in">
 				<p v-if="isObserved" class="text-content__text">
-					Мониторы серии DNA были разработаны и сконструированы для
-					примения в промышленной автоматизации. Прочный алюминиевый
-					корпус, защита IP 65 по передней панели, а также возможность
-					работы в широком температурном диапазоне делают устройства
-					серии DNA высоконадежными решениями для применения в тяжелых
-					условиях производства. Мониторы DNA имеют сертификат
-					соответствия ТС RUC-RU.A310.B.06475 подтверждающий
-					соблюдение стандартовна промышленные устройства отображения
+					Промышленные мониторы серии DNA, полностью разработаны
+					конструкторской группой компании, обладают рядом
+					конструктивных особенностей и широким набором дополнительных
+					функций. Мониторы сочетают современный промышленный дизайн и
+					надежную элементную базу. Серия имеет сертификаты
+					соответствия ТС № RUC-RU.A310.B.06475 подтверждающий
+					соблюдение стандартов на промышленные устройства отображения
 					информации.
+				</p>
+			</transition>
+			<transition name="text-appear" mode="out-in">
+				<p v-if="isObserved" class="text-content__text">
+					Прочный алюминиевый корпус, защита IP 65 по передней панели,
+					а также возможность работы в широком температурном диапазоне
+					делают устройства серии DNA высоконадежными решениями для
+					применения в тяжелых условиях производства.
 				</p>
 			</transition>
 
@@ -69,6 +82,12 @@
 				:elem="'.features-block'"
 			/>
 		</div>
+		<!-- Лого Локальное производство -->
+		<img
+			class="logo-local"
+			src="/img/local_logo.svg"
+			alt="Логотип локальное производство"
+		/>
 	</section>
 </template>
 
@@ -213,6 +232,24 @@ export default {
     width: 100%;
     min-height: 100vh;
 
+	/* Логотип Front Display */
+	& .logo,
+	& .logo-local {
+		position: absolute;
+		left: calc(var(--column) + var(--gutter));
+		width: calc(var(--column) * 3 + var(--row) * 3);
+	}
+
+	& .logo {
+		top: 20px;
+	}
+
+	/* Логотип локальное производство */
+	& .logo-local {
+		bottom: 20px;
+		width: calc(var(--column) * 2 + var(--row) * 2);
+	}
+
 	/* Текстовый контент */
 	& .text-content {
 		height: 100vh;
@@ -222,6 +259,7 @@ export default {
 		display: flex;
 		flex-flow: column;
 		justify-content: center;
+		position: relative;
 
 		& .text__decore-line {
 			height: 50%;
