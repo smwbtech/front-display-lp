@@ -144,7 +144,7 @@ export default {
 		}
 
 		& .wrapper {
-			width: calc(var(--column) * 18 + var(--gutter) * 17);
+			width: calc(var(--column) * 18 + var(--gutter) * 16);
 			min-height: calc(var(--row) * 6 + var(--column) * 5);
 			overflow: hidden;
 			position: relative;
