@@ -22,7 +22,9 @@ export async function getItems(token) {
 	if (apiResponse.status === 200) {
 		const { status, data, error } = apiResponse.data
 		if (status) {
-			return data
+			return data.sort(
+				(a, b) => parseInt(b.inStock.value) - parseInt(a.inStock.value)
+			)
 		} else {
 			console.error(error)
 		}
