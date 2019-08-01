@@ -130,7 +130,7 @@ export default {
 <style lang="css" scoped>
 /* Footer */
 .footer {
-	padding: 20px calc(var(--column) * 2 + var(--gutter));
+	padding: 20px calc(var(--column) * 4 + var(--gutter));
 	background: linear-gradient(45deg, var(--marine), var(--blue));
 	color: #fff;
 	display: flex;
@@ -153,7 +153,8 @@ export default {
 		justify-content: space-between;
 		font-size: .8em;
 		list-style: none;
-		width: calc(var(--column) * 15 + var(--gutter) * 15);
+		width: calc(var(--column) * 13 + var(--gutter) * 12);
+		padding-right: var(--gutter);
 		text-align: center;
 		align-items: center;
 		/* Город */
@@ -207,6 +208,7 @@ export default {
 
 		& .adress-list {
 			flex-flow: column;
+			padding-right: 0;
 
 			& li {
 				margin-bottom: 20px;
