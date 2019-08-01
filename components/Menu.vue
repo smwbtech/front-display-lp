@@ -79,7 +79,7 @@ export default {
 /* Блок меню */
 .menu {
     padding-top: 20px;
-    padding-left: calc(var(--column) * 2 + var(--gutter) * 2);
+    padding-left: calc(var(--column) + var(--gutter));
     position: relative;
     display: flex;
     width: 100%;
