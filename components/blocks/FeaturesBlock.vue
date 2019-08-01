@@ -289,6 +289,7 @@ export default {
 
             & .feature-text__text {
                 line-height: 1.8;
+				padding-right: calc(var(--column) + var(--gutter));
             }
 
         }
