@@ -1,7 +1,7 @@
 <template lang="html">
 	<!-- Меню -->
 	<nav class="menu">
-		<!-- Логотип -->
+		<!-- Логотип Front Display -->
 		<img
 			src="/img/fd_logo.svg"
 			alt="Логотип линейки промышленных мониторов Front Display"
