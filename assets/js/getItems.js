@@ -1,7 +1,7 @@
 import axios from 'axios'
 import config from '@/config.js'
 
-const SECTION_ID = 297677 // id секции FRONT DISPLAY
+const SECTION_ID = 128955 // id секции Промышленных дисплеев
 
 /**
  * Получения списка товаров из заданного раздела
@@ -12,7 +12,11 @@ const SECTION_ID = 297677 // id секции FRONT DISPLAY
  */
 export async function getItems(token) {
 	const apiResponse = await axios.get(
-		`${config.host}/api/v1/get/items/from?id_list=${SECTION_ID}`,
+		`${
+			config.host
+		}/api/v1/get/items/from?id_list=${SECTION_ID}&vendors=${encodeURIComponent(
+			'Ниеншанц-Автоматика'
+		)}`,
 		{
 			headers: {
 				Authorization: `Bearer ${token}`
