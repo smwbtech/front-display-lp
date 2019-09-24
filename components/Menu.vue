@@ -81,13 +81,12 @@ export default {
 	position: fixed;
 	top: 0;
 	height: 120px;
-    padding-top: 10px;
     padding-left: calc(var(--column) + var(--gutter));
     display: flex;
 	justify-content: space-between;
     width: 100%;
     z-index: 1000;
-	background: linear-gradient(rgba(0, 149, 218, .5), rgba(0, 149, 218, 0));
+	background: linear-gradient(rgba(0, 149, 218, .9), rgba(0, 149, 218, 0));
 
 	/* Лого Front-Display */
     & .logo {
