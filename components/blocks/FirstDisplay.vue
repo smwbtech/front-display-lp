@@ -4,7 +4,7 @@
 		<Menu class="menu" />
 		<transition name="fade-in-bottom">
 			<h1 v-if="showTitle" class="title">
-				Российские промышленные мониторы<br />серия DNA 17” / 19”
+				Российские промышленные мониторы<br />DNA-17 / DNA-19
 			</h1>
 		</transition>
 		<!-- Кнопка перехода на следующий экран -->
@@ -30,7 +30,7 @@
 		<transition name="fade-in" mode="out-in">
 			<img
 				v-if="showLogo"
-				src="/img/nnz_logo.svg"
+				src="/img/fd_logo.svg"
 				alt=""
 				class="nnz-logo"
 			/>
@@ -72,6 +72,10 @@ export default {
 
 .first-display {
     position: relative;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
     width: 100%;
     height: 100vh;
 	margin-bottom: 0.5px;
@@ -83,12 +87,9 @@ export default {
         position: relative;
         z-index: 10;
         color: #fff;
-        font-size: 1.4em;
+        font-size: 2em;
         letter-spacing: .1rem;
         text-align: center;
-        width: calc(var(--column) * 10 + var(--gutter) * 9);
-        margin: 0 auto;
-        margin-top: calc(var(--row) + var(--gutter));
 
 		& br {
 			line-height: 1.2;
@@ -109,8 +110,7 @@ export default {
     }
 	/* лого ниеншанц */
     & .nnz-logo {
-        position: absolute;
-        z-index: 4;
+        z-index: 6;
         width: calc(var(--column) * 9 + var(--gutter) * 8);
         top: 40%;
         left: calc(var(--column) * 8 + var(--gutter) * 7);
@@ -146,6 +146,7 @@ export default {
 .fade-in-enter-active,
 .fade-in-leave-active {
     transition: opacity .3s ease-in, transform .35s ease-in;
+	transition-delay: .4s;
 }
 
 /* Текст */
@@ -172,6 +173,15 @@ export default {
 .fade-in-top-enter-active,
 .fade-in-top-leave-active {
     transition: opacity .3s ease-in, transform .35s ease-in;
+}
+
+/* Верстка для мониторов с небольшим разрешением */
+@media (1024px <= width < 1366px) {
+	.first-display {
+		& .title {
+			font-size: 1.4em;
+		}
+	}
 }
 
 /* Верстка для мобильных */
