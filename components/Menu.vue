@@ -133,7 +133,7 @@ export default {
 /* end Блок меню */
 
 /* Верстка для мониторов с небольшим разрешением */
-@media (1024px <= width < 1366px) {
+@media (1024px <= width <= 1440px) {
 	.menu {
 		& .menu-list {
 			& .menu-list__item {
