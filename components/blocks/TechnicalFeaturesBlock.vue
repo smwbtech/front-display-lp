@@ -64,7 +64,6 @@ export default {
 .features-block {
     min-height: 100vh;
     position: relative;
-    padding: 50px 0px;
     display: flex;
     overflow: hidden;
 
