@@ -80,6 +80,7 @@ export default {
 .menu {
 	position: fixed;
 	top: 0;
+	height: calc(var(--row) * 2 + var(--gutter));
     padding-top: 20px;
     padding-left: calc(var(--column) + var(--gutter));
     display: flex;
