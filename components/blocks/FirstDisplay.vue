@@ -191,17 +191,19 @@ export default {
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center center;
+		justify-content: flex-start;
+		padding-top: 20%;
 
 		& .title {
 			width: calc(var(--m-column) * 10 + var(--m-gutter) * 9);
 			margin-top: 0px;
 			padding-top: 20px;
+			margin-bottom: 40px;
 			font-size: 1em;
 		}
 
 		& .nnz-logo {
-			width: calc(var(--m-column) * 6 + var(--m-gutter) * 5);
-			left: calc(var(--m-column) * 3 + var(--m-gutter) * 3);
+			width: calc(var(--m-column) * 8 + var(--m-gutter) * 7);
 		}
 
 		& .next-screen-btn {
