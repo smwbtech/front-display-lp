@@ -3,7 +3,7 @@
 	<nav class="menu">
 		<!-- Логотип Front Display -->
 		<img
-			src="/img/fd_logo.svg"
+			src="/img/nnz_logo.svg"
 			alt="Логотип линейки промышленных мониторов Front Display"
 			class="logo"
 		/>
@@ -78,32 +78,35 @@ export default {
 <style lang="css" scoped>
 /* Блок меню */
 .menu {
+	position: fixed;
+	top: 0;
     padding-top: 20px;
     padding-left: calc(var(--column) + var(--gutter));
-    position: relative;
     display: flex;
+	justify-content: space-between;
     width: 100%;
     z-index: 1000;
+	background: linear-gradient(rgba(0, 149, 218, .5), rgba(0, 149, 218, 0));
 
 	/* Лого Front-Display */
     & .logo {
 		display: block;
         margin-right: calc(var(--column) + var(--gutter) * 2);
-		width: calc(var(--column) * 3 + var(--row) * 3);
+		width: calc(var(--column) * 2 + var(--row) * 1);
     }
 
 	/* Список разделов навигации */
     & .menu-list {
+		padding-right: calc(var(--column) + var(--gutter));
         display: flex;
         list-style: none;
         color: #fff;
-        width: 100%;
         align-items: center;
 
 		/* Раздел */
         & .menu-list__item {
             display: block;
-            margin-right: calc(var(--column) + var(--gutter) * 2);
+            margin-left: calc(var(--column) + var(--gutter) * 2);
 
             & > a {
                 font-size: 1.5em;
@@ -127,6 +130,25 @@ export default {
 	/* end Список разделов навигации */
 }
 /* end Блок меню */
+
+/* Верстка для мониторов с небольшим разрешением */
+@media (1024px <= width < 1366px) {
+	.menu {
+		& .menu-list {
+			& .menu-list__item {
+				& > a {
+					font-size: 1.2em;
+				}
+
+				& .buy-btn {
+					& .buy {
+						font-size: 1.2em;
+					}
+				}
+			}
+		}
+	}
+}
 
 /* Верстка для мобильных */
 @media (320px <= width < 1024px) {
