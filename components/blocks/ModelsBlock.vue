@@ -37,7 +37,6 @@
 
 <script>
 import ModelListItem from '@/components/ModelListItem.vue'
-
 export default {
 	components: {
 		ModelListItem
@@ -48,7 +47,6 @@ export default {
 			required: true
 		}
 	},
-
 	data() {
 		return {
 			slide: 0,
@@ -56,7 +54,6 @@ export default {
 			window: null
 		}
 	},
-
 	computed: {
 		column() {
 			if (this.window) {
@@ -66,14 +63,12 @@ export default {
 			}
 			return 0
 		},
-
 		marginSides() {
 			if (this.window) {
 				return this.window.innerWidth >= 1024 ? 80 : 20
 			}
 			return 0
 		},
-
 		styleObj() {
 			return {
 				width: `${this.items.length * 100 +
@@ -82,11 +77,9 @@ export default {
 			}
 		}
 	},
-
 	mounted() {
 		this.window = window
 	},
-
 	methods: {
 		moveCarousel(i) {
 			if (i > 0 && this.slide + 3 < this.items.length) {
@@ -108,47 +101,38 @@ export default {
 </script>
 
 <style lang="css" scoped>
-
 .models-display {
     min-height: 100vh;
 	background-image: url('/img/models-display/bg.jpg');
 	padding-top: calc(var(--row) + var(--gutter));
 	padding-left: calc(var(--column) + var(--gutter));
 	padding-right: calc(var(--column) + var(--gutter));
-
 	& .title {
 		font-family: 'Clear Sans', sans-serif;
 		font-weight: 100;
 		font-size: 1.2em;
 		margin-bottom: calc(var(--row) + var(--gutter));
 	}
-
 	& .models {
-
 		display: flex;
 		justify-content: space-between;
-
 		& .models__controls {
 			width: calc(var(--column) * 2 + var(--gutter) * 1);
 			fill: var(--blue);
 			cursor: pointer;
-
 			&.models__controls_inactive {
 				opacity: .5;
 				cursor: not-allowed;
 			}
-
 			&:avtive {
 				transform: scale(0.9);
 			}
 		}
-
 		& .wrapper {
 			width: calc(var(--column) * 18 + var(--gutter) * 16);
 			min-height: calc(var(--row) * 6 + var(--column) * 5);
 			overflow: hidden;
 			position: relative;
-
 			& .models-list {
 				position: absolute;
 				left: 0%;
@@ -161,7 +145,6 @@ export default {
 		}
 	}
 }
-
 /* Верстка для мобильных */
 @media (320px <= width < 1024px) {
 	.models-display {
@@ -169,17 +152,14 @@ export default {
 		padding-top: calc(var(--m-row) + var(--m-gutter));
 		padding-left: 0;
 		padding-right: 0;
-
 		& .title {
 			font-size: 1em;
 			text-align: center;
 		}
-
 		& .models {
 			& .models__controls {
 				width: calc(var(--m-column) * 2 + var(--m-gutter) * 1);
 			}
-
 			& .wrapper {
 				min-height: 100vh;
 				width: calc(var(--m-column) * 9 + var(--m-gutter) * 8);
