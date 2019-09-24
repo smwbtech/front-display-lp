@@ -1,11 +1,5 @@
 <template lang="html">
 	<section id="display-block" class="display-block">
-		<!-- Лого Front Display -->
-		<img
-			class="logo"
-			src="/img/fd_logo_colored.svg"
-			alt="Логотип Front Display"
-		/>
 		<!-- Текстовый блок -->
 		<div class="text-content">
 			<!-- Декоративная линия -->
@@ -31,10 +25,7 @@
 					соответствия ТС № RUC-RU.A310.B.06475 подтверждающий
 					соблюдение стандартов на промышленные устройства отображения
 					информации.
-				</p>
-			</transition>
-			<transition name="text-appear" mode="out-in">
-				<p v-if="isObserved" class="text-content__text">
+					<br />
 					Прочный алюминиевый корпус, защита IP 65 по передней панели,
 					а также возможность работы в широком температурном диапазоне
 					делают устройства серии DNA высоконадежными решениями для
@@ -53,6 +44,22 @@
 					>
 				</ActionButton>
 			</transition>
+
+			<!-- Логотипы -->
+			<div class="logos">
+				<!-- Лого Локальное производство -->
+				<img
+					class="logo-local"
+					src="/img/local_logo.svg"
+					alt="Логотип локальное производство"
+				/>
+				<!-- Лого Front Display -->
+				<img
+					class="logo-fd"
+					src="/img/fd_logo_colored.svg"
+					alt="Логотип Front Display"
+				/>
+			</div>
 		</div>
 
 		<!-- Блок с иллюстрацией -->
@@ -82,12 +89,6 @@
 				:elem="'.features-block'"
 			/>
 		</div>
-		<!-- Лого Локальное производство -->
-		<img
-			class="logo-local"
-			src="/img/local_logo.svg"
-			alt="Логотип локальное производство"
-		/>
 	</section>
 </template>
 
@@ -124,7 +125,7 @@ export default {
 						height: '90px',
 						backgroundImage:
 							'url("/img/monitor-display/romb_3_bg.jpg")',
-						left: '150px',
+						left: '100px',
 						top: '-40px',
 						opacity: '.6'
 					}
@@ -136,8 +137,8 @@ export default {
 						height: '70px',
 						backgroundImage:
 							'url("/img/monitor-display/romb_2_bg.jpg")',
-						left: '30px',
-						top: '-30px',
+						left: '-1px',
+						top: '-60px',
 						opacity: '.3'
 					}
 				},
@@ -159,7 +160,7 @@ export default {
 						backgroundImage:
 							'url("/img/monitor-display/romb_4_bg.jpg")',
 						left: '-50px',
-						bottom: '20px',
+						bottom: '-120px',
 						opacity: '.4'
 					}
 				},
@@ -170,8 +171,8 @@ export default {
 						height: '50px',
 						backgroundImage:
 							'url("/img/monitor-display/romb_5_bg.jpg")',
-						left: '-50px',
-						bottom: '-60px',
+						left: '-6px',
+						bottom: '-160px',
 						opacity: '.6'
 					}
 				},
@@ -182,8 +183,8 @@ export default {
 						height: '80px',
 						backgroundImage:
 							'url("/img/monitor-display/romb_6_bg.jpg")',
-						left: '30px',
-						bottom: '-30px',
+						left: '10px',
+						bottom: '-61px',
 						opacity: '.3'
 					}
 				}
@@ -232,46 +233,29 @@ export default {
     width: 100%;
     min-height: 100vh;
 
-	/* Логотип Front Display */
-	& .logo,
-	& .logo-local {
-		position: absolute;
-		left: calc(var(--column) + var(--gutter));
-		width: calc(var(--column) * 3 + var(--row) * 3);
-	}
-
-	& .logo {
-		top: 20px;
-	}
-
-	/* Логотип локальное производство */
-	& .logo-local {
-		bottom: 20px;
-		width: calc(var(--column) * 2 + var(--row) * 2);
-	}
-
 	/* Текстовый контент */
 	& .text-content {
 		height: 100vh;
-		width: calc(var(--column) * 14 + var(--gutter) * 14);
-		padding-left: calc(var(--column) * 2 + var(--gutter) * 2);
-		padding-right: calc(var(--column) * 4 + var(--gutter) * 4);
+		width: calc(var(--column) * 12 + var(--gutter) * 12);
+		padding-left: calc(var(--column) + var(--gutter) + 50px);
+		padding-right: calc(var(--column) * 3 + var(--gutter) * 3);
+		padding-top: 150px;
 		display: flex;
 		flex-flow: column;
-		justify-content: center;
+		justify-content: space-between;
 		position: relative;
 
 		& .text__decore-line {
-			height: 50%;
+			height: 70%;
 			left: calc(var(--column) + var(--gutter));
 		}
 
 		& .text-content__title {
 			position: relative;
-			font-size: 1.2em;
+			font-size: 1.1em;
 			letter-spacing: 1.5px;
 			line-height: .8;
-			margin-bottom: 40px;
+			margin-bottom: 20px;
 
 			& br {
 				line-height: .8em;
@@ -279,7 +263,7 @@ export default {
 
 			& span {
 				font-family: 'Clear Sans', sans-serif;
-				font-size: 1.4em;
+				font-size: 1.3em;
 				font-weight: 100;
 			}
 
@@ -288,10 +272,10 @@ export default {
 				display: block;
 				position: absolute;
 				z-index: 20;
-				bottom: -40px;
+				bottom: -10px;
 				left: 0;
 				width: calc(var(--column) * 3 + var(--gutter) * 2);
-				height: 20px;
+				height: 5px;
 				background-color: #000;
 			}
 		}
@@ -311,21 +295,36 @@ export default {
 				text-decoration: none;
 			}
 		}
+
+		/* Логтипы */
+		& .logos {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			& .logo-fd,
+			& .logo-local {
+				width: calc(var(--column) * 3 + var(--gutter) * 2);
+			}
+		}
 	}
 
 	/* Графический контент */
 	& .illustration {
 		position: relative;
 		padding-top: 20px;
-		width: calc(var(--column) * 10 + var(--gutter) * 9);
+		width: calc(var(--column) * 12 + var(--gutter) * 11);
 		background: url('/img/monitor-display/background.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
 
 		/* Блок с девайсом и ромбами */
 		& .device {
 			position: absolute;
 			width: 100%;
 			top: calc(var(--row) * 2 + var(--gutter) * 2);
-			left: calc(-1 * (var(--column) * 3 + var(--gutter) * 3));
+			left: calc(-1 * (var(--column) * 2 + var(--gutter) * 3));
 			height: calc(var(--row) * 5 + var(--gutter) * 4);
 
 			/* Картинка монитора */
