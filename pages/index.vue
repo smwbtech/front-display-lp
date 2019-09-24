@@ -10,6 +10,8 @@
 		</PageBlock>
 		<!-- Слайдер с особенностями -->
 		<PageBlock><FeaturesBlock /></PageBlock>
+		<!-- Технические особенности -->
+		<PageBlock><TechnicalFeaturesBlock /></PageBlock>
 		<!-- Список моделей -->
 		<PageBlock>
 			<ModelsBlock
@@ -73,6 +75,7 @@ import PageBlock from '@/components/PageBlock.vue'
 import FirstDisplay from '@/components/blocks/FirstDisplay.vue'
 import DisplayBlock from '@/components/blocks/DisplayBlock.vue'
 import FeaturesBlock from '@/components/blocks/FeaturesBlock.vue'
+import TechnicalFeaturesBlock from '@/components/blocks/TechnicalFeaturesBlock.vue'
 import ModelsBlock from '@/components/blocks/ModelsBlock.vue'
 import ModelFullView from '@/components/ModelFullView.vue'
 
@@ -85,6 +88,7 @@ export default {
 		FirstDisplay,
 		DisplayBlock,
 		FeaturesBlock,
+		TechnicalFeaturesBlock,
 		ModelsBlock,
 		ModelFullView
 	},
