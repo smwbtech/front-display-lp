@@ -1,14 +1,17 @@
 <template lang="html">
 	<section class="features-block">
 		<TechnicalFeatureItem
-			:show="isObserved"
+			:transitionName="'top'"
 			:bg="'rgba(0, 149, 218, 0.2)'"
 		/>
 		<TechnicalFeatureItem
-			:show="isObserved"
+			:transitionName="'bottom'"
 			:bg="'rgba(0, 149, 218, 0.6)'"
 		/>
-		<TechnicalFeatureItem :show="isObserved" :bg="'rgba(0, 149, 218, 1)'" />
+		<TechnicalFeatureItem
+			:transitionName="'top'"
+			:bg="'rgba(0, 149, 218, 1)'"
+		/>
 	</section>
 </template>
 
@@ -18,43 +21,6 @@ import TechnicalFeatureItem from '@/components/technical_features/TechnicalFeatu
 export default {
 	components: {
 		TechnicalFeatureItem
-	},
-
-	data() {
-		return {
-			isObserved: false
-		}
-	},
-
-	mounted() {
-		// После того, как компонент был монтирован, мониторим его попадание во вьюпорт
-		this.observeScroll(this.$el)
-	},
-
-	methods: {
-		/**
-		 * Отслеживаем, когда последний элемент
-		 *
-		 * @param  {Object} el - последний элемент текущего списка
-		 * @return {undefined}
-		 */
-		observeScroll(el) {
-			const options = {
-				threshold: 0.7
-			}
-
-			const callback = (entries, observer) => {
-				for (const entry of entries) {
-					const { isIntersecting } = entry
-					if (isIntersecting) {
-						this.isObserved = true
-						observer.disconnect()
-					}
-				}
-			}
-			const observer = new IntersectionObserver(callback, options)
-			observer.observe(el)
-		}
 	}
 }
 </script>
@@ -70,6 +36,7 @@ export default {
     &:before,
     &:after {
         position: absolute;
+        z-index: 10;
         left: 0;
         content: "";
         display: block;

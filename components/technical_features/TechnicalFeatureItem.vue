@@ -1,6 +1,14 @@
 <template lang="html">
-	<div class="feature-item" :style="styleObj">
+	<div class="feature-item">
 		<slot />
+		<div
+			:class="[
+				'feature-item__background',
+				`${transitionName}`,
+				isObserved ? 'active' : ''
+			]"
+			:style="styleObj"
+		/>
 	</div>
 </template>
 
@@ -9,6 +17,15 @@ export default {
 	props: {
 		bg: {
 			type: String
+		},
+		transitionName: {
+			type: String
+		}
+	},
+
+	data() {
+		return {
+			isObserved: false
 		}
 	},
 
@@ -18,13 +35,70 @@ export default {
 				backgroundColor: this.bg
 			}
 		}
+	},
+
+	mounted() {
+		// После того, как компонент был монтирован, мониторим его попадание во вьюпорт
+		this.observeScroll(this.$el)
+	},
+
+	methods: {
+		/**
+		 * Отслеживаем, когда последний элемент
+		 *
+		 * @param  {Object} el - последний элемент текущего списка
+		 * @return {undefined}
+		 */
+		observeScroll(el) {
+			const options = {
+				threshold: 0.7
+			}
+
+			const callback = (entries, observer) => {
+				for (const entry of entries) {
+					const { isIntersecting } = entry
+					if (isIntersecting) {
+						this.isObserved = true
+						observer.disconnect()
+					}
+				}
+			}
+			const observer = new IntersectionObserver(callback, options)
+			observer.observe(el)
+		}
 	}
 }
 </script>
 
 <style lang="css" scoped>
 .feature-item {
+    position: relative;
+    z-index: 9;
     width: 33.33333%;
     min-height: 100%;
+
+    & .feature-item__background {
+        width: 100%;
+        height: 100%;
+        transition: transform .6s ease-out;
+
+        &.bottom {
+            transform: translateY(100%);
+        }
+
+        &.top {
+            transform: translateY(-100%);
+        }
+
+        &.active {
+            transform: translateY(0%);
+        }
+    }
+
+}
+
+.top-enter-active,
+.bottom-enter-active {
+    transition: transform .4s ease-out;
 }
 </style>
