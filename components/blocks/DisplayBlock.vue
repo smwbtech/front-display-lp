@@ -17,19 +17,24 @@
 			<!-- Общее описание монитора -->
 			<transition name="text-appear" mode="out-in">
 				<p v-if="isObserved" class="text-content__text">
-					Промышленные мониторы серии DNA, полностью разработаны
-					конструкторской группой компании, обладают рядом
-					конструктивных особенностей и широким набором дополнительных
-					функций. Мониторы сочетают современный промышленный дизайн и
-					надежную элементную базу. Серия имеет сертификаты
-					соответствия ТС № RUC-RU.A310.B.06475 подтверждающий
-					соблюдение стандартов на промышленные устройства отображения
-					информации.
-					<br />
-					Прочный алюминиевый корпус, защита IP 65 по передней панели,
-					а также возможность работы в широком температурном диапазоне
-					делают устройства серии DNA высоконадежными решениями для
-					применения в тяжелых условиях производства.
+					<span>
+						Промышленные мониторы серии DNA, полностью разработаны
+						конструкторской группой компании, обладают рядом
+						конструктивных особенностей и широким набором
+						дополнительных функций. Мониторы сочетают современный
+						промышленный дизайн и надежную элементную базу. Серия
+						имеет сертификаты соответствия ТС № RUC-RU.A310.B.06475
+						подтверждающий соблюдение стандартов на промышленные
+						устройства отображения информации.
+					</span>
+
+					<span
+						>Прочный алюминиевый корпус, защита IP 65 по передней
+						панели, а также возможность работы в широком
+						температурном диапазоне делают устройства серии DNA
+						высоконадежными решениями для применения в тяжелых
+						условиях производства.</span
+					>
 				</p>
 			</transition>
 
@@ -46,20 +51,22 @@
 			</transition>
 
 			<!-- Логотипы -->
-			<div class="logos">
-				<!-- Лого Локальное производство -->
-				<img
-					class="logo-local"
-					src="/img/local_logo.svg"
-					alt="Логотип локальное производство"
-				/>
-				<!-- Лого Front Display -->
-				<img
-					class="logo-fd"
-					src="/img/fd_logo_colored.svg"
-					alt="Логотип Front Display"
-				/>
-			</div>
+			<transition name="text-appear" mode="out-in">
+				<div v-if="isObserved" class="logos">
+					<!-- Лого Локальное производство -->
+					<img
+						class="logo-local"
+						src="/img/local_logo.svg"
+						alt="Логотип локальное производство"
+					/>
+					<!-- Лого Front Display -->
+					<img
+						class="logo-fd"
+						src="/img/fd_logo_colored.svg"
+						alt="Логотип Front Display"
+					/>
+				</div>
+			</transition>
 		</div>
 
 		<!-- Блок с иллюстрацией -->
@@ -235,7 +242,7 @@ export default {
 
 	/* Текстовый контент */
 	& .text-content {
-		height: 100vh;
+		height: 100%;
 		width: calc(var(--column) * 12 + var(--gutter) * 12);
 		padding-left: calc(var(--column) + var(--gutter) + 50px);
 		padding-right: calc(var(--column) * 3 + var(--gutter) * 3);
@@ -255,7 +262,7 @@ export default {
 			font-size: 1.1em;
 			letter-spacing: 1.5px;
 			line-height: .8;
-			margin-bottom: 20px;
+			margin-bottom: 1em;
 
 			& br {
 				line-height: .8em;
@@ -282,7 +289,15 @@ export default {
 
 		& .text-content__text {
 			font-family: 'Clear Sans', sans-serif;
-			line-height: 1.8;
+
+			& span {
+				line-height: 1.8;
+				display: block;
+
+				&:first-child {
+					margin-bottom: 1em;
+				}
+			}
 		}
 
 		& .catalog-btn {
@@ -302,6 +317,7 @@ export default {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+			padding: 20px 0px;
 
 			& .logo-fd,
 			& .logo-local {
