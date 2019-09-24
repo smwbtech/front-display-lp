@@ -86,10 +86,31 @@ export default {
 	justify-content: space-between;
     width: 100%;
     z-index: 1000;
-	background: linear-gradient(rgba(0, 149, 218, .9), rgba(0, 149, 218, 0));
+	overflow: hidden;
+
+	&:before {
+		position: absolute;
+		left: 0;
+		z-index: 1001;
+		content: "";
+		display: block;
+		width: 100%;
+		height: 200%;
+		background: linear-gradient(rgba(0, 149, 218, .9), rgba(0, 149, 218, .7), rgba(0, 149, 218, 0));
+		transform: translateY(-50%);
+		transition: transform .3s ease-in;
+	}
+
+	&:hover {
+		&:before {
+			transform: translateY(00%);
+		}
+	}
 
 	/* Лого Front-Display */
     & .logo {
+position: relative;
+		z-index: 1002;
 		display: block;
         margin-right: calc(var(--column) + var(--gutter) * 2);
 		width: calc(var(--column) * 2 + var(--row) * 1);
@@ -97,6 +118,8 @@ export default {
 
 	/* Список разделов навигации */
     & .menu-list {
+		position: relative;
+		z-index: 1002;
 		padding-right: calc(var(--column) + var(--gutter));
         display: flex;
         list-style: none;
