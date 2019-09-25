@@ -237,17 +237,17 @@ export default {
 				position: relative;
                 font-family: 'Orpheus', serif;
                 font-size: 2em;
-				margin-bottom: 40px;
+				margin-bottom: 20px;
 
 				&:after {
 					content: "";
 					display: block;
 					position: absolute;
 					z-index: 20;
-					bottom: -40px;
+					bottom: -15px;
 					left: 0;
 					width: calc(var(--column) * 3 + var(--gutter) * 2);
-					height: 20px;
+					height: 5px;
 					background-color: #000;
 				}
             }
