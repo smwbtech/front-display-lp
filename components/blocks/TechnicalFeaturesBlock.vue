@@ -40,7 +40,7 @@ export default {
         left: 0;
         content: "";
         display: block;
-        height: 80px;
+        height: 97px;
         width: 100%;
         background-repeat: no-repeat;
         background-size: cover;
@@ -48,11 +48,11 @@ export default {
     }
 
     &:before {
-        top: -6px;
+        top: 0px;
     }
 
     &:after {
-        bottom: -6px;
+        bottom: 0px;
         transform: rotate(180deg);
     }
 }
