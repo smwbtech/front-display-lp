@@ -191,8 +191,6 @@ export default {
         width: calc(var(--column) * 13 + var(--gutter) * 12);
 
         & .image {
-            display: flex;
-            justify-content: center;
             width: calc(var(--column) * 12 + var(--gutter) * 11);
 
 			/* Изображения */
