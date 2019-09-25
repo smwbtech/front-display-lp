@@ -455,16 +455,17 @@ export default {
 	.display-block {
 		flex-flow: column;
 		text-align: center;
-
-		& .logo,
-		& .logo-local {
-			display: none;
-		}
+		min-height: 100vh;
 
 		& .text-content {
 			width: 100%;
 			height: auto;
 			padding: 20px;
+			padding-top: 40px;
+
+			& .logos {
+				display: none;
+			}
 
 			& .text__decore-line {
 				display: none;
@@ -472,23 +473,26 @@ export default {
 
 			& .text-content__title {
 				position: relative;
-				font-size: .6em;
+				font-size: 1em;
 				line-height: .8;
 				margin-bottom: 40px;
 
 				& br {
-					line-height: .3em;
+					line-height: .5em;
 				}
 
 				& span {
 					font-family: 'Clear Sans', sans-serif;
-					font-size: 2em;
+					display: block;
+					padding-top: 10px;
+					font-size: 1em;
 					font-weight: 100;
 				}
 
 				&:after {
 					width: calc(var(--m-column) * 3 + var(--m-gutter) * 2);
 					left: calc(50% - ((var(--m-column) * 3 + var(--m-gutter) * 2) / 2));
+					bottom: -30px;
 					height: 10px;
 				}
 			}
@@ -514,6 +518,10 @@ export default {
 				top: calc(var(--m-row) + var(--m-gutter));
 				left: calc((var(--m-column) * 3 + var(--m-gutter) * 3));
 				height: calc(var(--m-row) * 4 + var(--m-gutter) * 3);
+
+				& .romb {
+					display: none;
+				}
 
 				/* Картинка монитора */
 				& .device__image {
