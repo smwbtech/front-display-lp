@@ -242,7 +242,6 @@ export default {
 
 	/* Текстовый контент */
 	& .text-content {
-		height: 100%;
 		width: calc(var(--column) * 12 + var(--gutter) * 12);
 		padding-left: calc(var(--column) + var(--gutter) + 50px);
 		padding-right: calc(var(--column) * 3 + var(--gutter) * 3);
