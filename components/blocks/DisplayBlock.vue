@@ -9,7 +9,7 @@
 			<!-- Заголовок -->
 			<transition name="title-appear" mode="out-in">
 				<h2 v-if="isObserved" class="text-content__title">
-					промышленные мониторы росcийского производства<br /><span
+					Промышленные мониторы росcийского производства<br /><span
 						>серии DNA от компании Ниеншанц-Автоматика</span
 					>
 				</h2>
@@ -423,6 +423,31 @@ export default {
 .text-appear-enter-active,
 .text-appear-leave-active {
 	transition: opacity .3s ease-in .5s, transform .4s ease-in .5s;
+}
+
+/* Верстка для мониторов с небольшим разрешением */
+@media (1024px <= width < 1366px) {
+	.display-block {
+		& .text-content {
+			width: calc(var(--column) * 15 + var(--gutter) * 14);
+
+			& .text-content__text {
+				line-height: 1.4em;
+				& span {
+					font-size: .9em;
+					line-height: 1.4em;
+				}
+			}
+
+			& .catalog-btn {
+				width: calc(var(--column) * 5 + var(--gutter) * 4);
+			}
+		}
+
+		& .illustration {
+			width: calc(var(--column) * 9 + var(--gutter) * 9);
+		}
+	}
 }
 
 /* Верстка для мобильных */
