@@ -2,24 +2,28 @@
 	<section class="features-block">
 		<!-- Блок иллюстраций -->
 		<div class="illustration">
-			<transition name="image-appear" mode="out-in">
-				<div v-if="!isChanging" class="image">
+			<div class="image">
+				<transition :name="currentFeature.name" mode="out-in">
 					<img
-						v-for="illustration in currentFeature.illustrations"
-						:key="illustration"
-						:src="illustration"
-						class="image__item"
+						v-if="!isChanging"
+						:src="currentFeature.illustration"
+						class="condition"
 						alt=""
 					/>
-				</div>
-			</transition>
+				</transition>
+				<img
+					src="img/features-display/display.jpg"
+					alt="front display in grey color"
+					class="device"
+				/>
+			</div>
 		</div>
 
 		<!-- Текстовый блок -->
 		<div class="text">
 			<RombLine class="text__decore-line" />
 			<h2 class="title">
-				характеристики промышленного монитора DNA
+				условия эксплуатации промышленного монитора DNA
 			</h2>
 			<div class="feature-text">
 				<transition name="title-appear">
@@ -58,64 +62,35 @@ export default {
 			isChanging: false,
 			current: 0,
 			timerId: undefined,
-			navComponents: [
-				'Ip65Nav',
-				'TemperatureNav',
-				'PortsNav',
-				'TouchNav',
-				'CustomizatiomNav'
-			],
+			navComponents: ['WaterNav', 'SandNav', 'ColdNav', 'HotNav'],
 			features: [
 				{
-					illustrations: [
-						'img/features-display/ip65_illustration_left.jpg',
-						'img/features-display/ip65_illustration_center.jpg',
-						'img/features-display/ip65_illustration_right.jpg'
-					],
-					title: 'Защита по передней панели',
+					name: 'water',
+					illustration: 'img/features-display/water.png',
+					title: 'Высокий класс защиты от влаги',
 					description:
-						'Лицевая панель монитора изготовлена из 10 мм листа алюминия и высокопрочного закалённого стекла, что обеспечивает высокую прочность и вандалоустойчивость устройства. Помимо этого, лицевая панель имеет защиту IP65 от пыли и влаги. Данная особенность позволяет уберечь промышленный мониторы серии DNA от попадания микрочастиц внутрь, что гарантирует надежную работу устройства в тяжелых условиях производства.'
+						'Защита от влаги,  в особенности по передней панели, является критически важной характеристикой для промышленных дисплеев, поэтому мониторы серии DNA обеспечивают высокий класс защиты IP65 с лицевой стороны, защищающий устройство от влаги и брызг. Техническое решение реализовано за счет герметизации всех соединений передней панели монитора и наличия уплотнителя по контуру.'
 				},
 				{
-					illustrations: [
-						'img/features-display/temperature_illustration_left.jpg',
-						'img/features-display/temperature_illustration_center.jpg',
-						'img/features-display/temperature_illustration_right.jpg'
-					],
-					title: 'Работа монитора в широком диапазоне температур',
+					name: 'sand',
+					illustration: 'img/features-display/sand.png',
+					title: 'Высокий класс защиты от пыли',
 					description:
-						'Мониторы серии DNA были специально разработаны для применения в тяжелых условиях эксплуатации, что подразумевает под собой использование в неотапливаемых помещениях или же помещениях с плохой вентиляцией. Устройства способны исправно работать при температурах от -20 до +60 °C'
+						'Корпус монитора защищен от попадания пыли благодаря продуманной конструкции элементов корпуса, которые полностью перекрывают доступ пыли с лицевой панели монитора, и не допускают ее попадания с тыльной стороны прибора и интерфейсных разъемов. Данная особенность позволяет уберечь промышленный мониторы серии DNA от попадания микрочастиц внутрь, что гарантирует надежную работу устройства в тяжелых условиях производства, в том числе в помещениях с высоким уровнем пыли и загрязнений.'
 				},
 				{
-					illustrations: [
-						'img/features-display/ports_illustration_left.jpg',
-						'img/features-display/ports_illustration_center.jpg',
-						'img/features-display/ports_illustration_right.jpg'
-					],
-					title: 'Видеоинтерфейсы',
+					name: 'cold',
+					illustration: 'img/features-display/cold.png',
+					title: 'Работа в холод',
 					description:
-						'Мониторы серии DNA имеют на борту три видеовхода: VGA, DisplayPort 1.1 и DVI-D (опционально, DVI-D может быть заменён на HDMI). В зависимости от задач, пользователь имеет возможность выбора наиболее подходящего интерфейса.'
+						'Мониторы серии DNA были специально разработаны для применения в тяжелых условиях эксплуатации, что подразумевает под собой использование в неотапливаемых помещениях. Устройства способны исправно работать при температурах до -20 °C. При этом не происходит ухудшения изображения - возникновения белых пятен и размытия изображения. Условиях низких температур являются рабочим режимом монитора и не приводят к повреждению его внутренних компонентов.'
 				},
 				{
-					illustrations: [
-						'img/features-display/touch_illustration_left.jpg',
-						'img/features-display/touch_illustration_center.jpg',
-						'img/features-display/touch_illustration_right.jpg'
-					],
-
-					title: 'Сенсорный экран',
+					name: 'hot',
+					illustration: 'img/features-display/hot.png',
+					title: 'Работа в жару',
 					description:
-						'Мониторы серии DNA могут поставляться как с закалённым защитным стеклом, так и с резистивным сенсорным экраном (Penmount 6000). Сенсорный экран имеет два интерфейса: RS-232 и USB, соответственно, через любой из них он может быть подключён к компьютеру.'
-				},
-				{
-					illustrations: [
-						'img/features-display/customization_illustration_left.jpg',
-						'img/features-display/customization_illustration_center.jpg',
-						'img/features-display/customization_illustration_right.jpg'
-					],
-					title: 'Широкий ассортимент модификаций и опций',
-					description:
-						'Мониторы серии DNA имеют широкий набор модификаций и опций, помимо которых, возможна разработка индивидуальных решений, необходимых для реализации конкретного проекта заказчика (например, блок клавиш настройки монитора может быть перенесён с лицевой на тыльную сторону). '
+						'Устройства способны исправно работать при температурах до +60 °C, что характерно для закрытых помещений с плохой вентиляцией, щитов с высокой плотностью компонентов, горячих цехов, а так же шахт вентиляции. Условиях высоких температур являются рабочим режимом монитора и не приводят к повреждению его внутренних компонентов, а стабильность работы дисплея может быть гарантирована.'
 				}
 			]
 		}
@@ -213,35 +188,25 @@ export default {
 
     /* Изображение */
     & .illustration {
-		margin-top: var(--row);
         width: calc(var(--column) * 13 + var(--gutter) * 12);
 
         & .image {
             display: flex;
-            justify-content: flex-start;
+            justify-content: center;
             width: calc(var(--column) * 12 + var(--gutter) * 11);
-			height: 80%;
+
 			/* Изображения */
-            & .image__item {
-                display: block;
-                align-self: center;
-				max-height: calc(var(--row) * 5 + var(--gutter) * 5);
-				transition: transform .3s ease-out .15s;
-
-				&:first-of-type {
-					width: calc(var(--column) + var(--gutter));
-					transform: translateY(40px);
-				}
-
-				&:nth-of-type(2) {
-					width: calc(var(--column) * 8 + var(--gutter) * 7);
-				}
-
-				&:last-of-type {
-					width: calc(var(--column) * 2 + var(--gutter) * 3);
-					transform: translateY(-40px);
-				}
+            & .device {
+				position: relative;
+				z-index: 15;
+				width: calc(var(--column) * 12 + var(--gutter) * 11);
             }
+
+			& .condition {
+				z-index: 16;
+				position: absolute;
+				width: calc(var(--column) * 12 + var(--gutter) * 11);
+			}
 
         }
     }
@@ -326,40 +291,38 @@ export default {
 /* Анимации и переходы */
 
 /* Изображение */
-.image-appear-enter {
-	transform: translateX(-40px);
-	opacity: 0;
 
-	& .image__item {
-
-		&:first-of-type,
-		&:last-of-type {
-			transform: translateY(0) !important;
-		}
-	}
+.water-enter-active,
+.water-leave-active,
+.sand-enter-active,
+.sand-leave-active {
+	transition: opacity .3s ease-in, transform .3s ease-out;
 }
 
-.image-appear-leave-to {
-	& .image__item {
-
-		&:first-of-type {
-			transform: translateY(60px) !important;
-		}
-
-		&:last-of-type {
-			transform: translateY(-60px) !important;
-		}
-	}
-}
-
-.image-appear-leave-to {
-	transform: translateX(40px);
+.water-enter,
+.sand-leave-to {
+	transform: translateX(-50px);
 	opacity: 0;
 }
 
-.image-appear-enter-active,
-.image-appear-leave-active {
-	transition: opacity .3s ease-in, transform .35s ease-in;
+.sand-enter,
+.water-leave-to {
+	transform: translateX(50px);
+	opacity: 0;
+}
+
+.cold-enter-active,
+.cold-leave-active,
+.hot-enter-active,
+.hot-leave-active {
+	transition: opacity .3s ease-in;
+}
+
+.cold-enter,
+.cold-leave-to,
+.hot-enter,
+.hot-leave-to {
+	opacity: 0;
 }
 
 /* Заголовок */
@@ -400,23 +363,14 @@ export default {
 				padding: 0 10px;
 				margin-bottom: 20px;
 
-				& .image__item {
-					max-height: calc(var(--m-row) * 5 + var(--m-gutter) * 5);
-
-					&:first-of-type {
-						width: calc(var(--m-column) + var(--m-gutter));
-						transform: translateY(40px);
-					}
-
-					&:nth-of-type(2) {
-						width: calc(var(--m-column) * 8 + var(--m-gutter) * 7);
-					}
-
-					&:last-of-type {
-						width: calc(var(--m-column) * 2 + var(--m-gutter) * 3);
-						transform: translateY(-40px);
-					}
+				& .device {
+					width: calc(var(--m-column) * 10 + var(--m-gutter) * 9);
 				}
+
+				& .condition {
+					width: calc(var(--m-column) * 10 + var(--m-gutter) * 9);
+				}
+
 			}
 		}
 
@@ -430,13 +384,13 @@ export default {
 			}
 
 			& .title {
-				font-size: 1em;
-				padding-top: 20px;
+				display: none;
 			}
 
 			& .feature-text {
-
-				min-height: 80vh;
+				order: 2;
+				min-height: 100vh;
+				justify-content: flex-start;
 
 				& .feature-text__title {
 					font-size: 1.2em;
@@ -458,6 +412,7 @@ export default {
 
 			& .nav {
 				width: 100%;
+				order: 1;
 			}
 
 		}
