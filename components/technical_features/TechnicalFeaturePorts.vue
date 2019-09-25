@@ -128,6 +128,21 @@ export default {
                 top: 46.8%;
                 width: 2.9%;
             }
+			&.port__dp {
+				left: 56.6%;
+                top: 46.8%;
+                width: 3.2%;
+			}
+			&.port__hdmi {
+				left: 56.6%;
+                top: 46.8%;
+                width: 2%;
+			}
+			&.port__usb {
+				left: 56.6%;
+                top: 46.8%;
+                width: 2.5%;
+			}
         }
     }
 }
@@ -144,7 +159,6 @@ export default {
 }
 
 /* Выравнивание портов в зависимости от ширины экрана */
-/* 5.4 */
 @media (width: 1680px), (width: 1440px) {
 	.image {
         & .device {
@@ -159,7 +173,7 @@ export default {
         }
     }
 }
-/* 3 */
+
 @media (width: 1600px), (width: 1366px) {
 	.image {
         & .device {
@@ -174,7 +188,7 @@ export default {
         }
     }
 }
-/* 5.8 */
+
 @media (width: 1280px) {
 	.image {
         & .device {
@@ -189,7 +203,7 @@ export default {
         }
     }
 }
-/* 10 */
+
 @media (width: 1024px) {
 	.image {
         & .device {
@@ -203,5 +217,47 @@ export default {
             }
         }
     }
+}
+
+/* Retina */
+/* MacBook Pro 13 */
+@media (-webkit-min-device-pixel-ratio: 2) and (width: 1440px) {
+	.image {
+		& .device {
+			& .port {
+				&.port__rs {
+					top: 22.7%;
+				}
+				&.port__vga {
+					top: 47.3%;
+				}
+				&.port__dp {
+					top: 55.0%;
+				}
+				&.port__hdmi {
+					top: 67.0%;
+				}
+				&.port__usb {
+					top: 73.0%;
+				}
+			}
+		}
+	}
+}
+
+/* MacBook Pro 15 */
+@media (-webkit-min-device-pixel-ratio: 2) and (width: 2880px) {
+	.image {
+		& .device {
+			& .port {
+				&.port__rs {
+					top: 25.2%;
+				}
+				&.port__vga {
+					top: 47.8%;
+				}
+			}
+		}
+	}
 }
 </style>
