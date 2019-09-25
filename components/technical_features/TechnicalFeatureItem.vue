@@ -20,6 +20,12 @@ export default {
 		},
 		transitionName: {
 			type: String
+		},
+		blockName: {
+			type: String
+		},
+		delay: {
+			type: Number
 		}
 	},
 
@@ -59,6 +65,10 @@ export default {
 					const { isIntersecting } = entry
 					if (isIntersecting) {
 						this.isObserved = true
+						this.$emit('observed', {
+							name: this.blockName,
+							delay: this.delay
+						})
 						observer.disconnect()
 					}
 				}
@@ -78,7 +88,10 @@ export default {
     min-height: 100%;
 
     & .feature-item__background {
-        width: 100%;
+		position: absolute;
+		z-index: 25;
+		top: 0;
+		width: 100%;
         height: 100%;
         transition: transform .6s ease-out;
 
@@ -100,5 +113,12 @@ export default {
 .top-enter-active,
 .bottom-enter-active {
     transition: transform .4s ease-out;
+}
+
+/* Верстка для мобильных */
+@media (320px <= width < 1024px) {
+	.feature-item  {
+		width: 100%;
+	}
 }
 </style>

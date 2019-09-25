@@ -1,9 +1,15 @@
 <template lang="html">
 	<section class="features-block">
+		<!-- Порты -->
 		<TechnicalFeatureItem
 			:transitionName="'top'"
 			:bg="'rgba(0, 149, 218, 0.2)'"
-		/>
+			:blockName="'showPorts'"
+			:delay="600"
+			@observed="blockObservedHandler"
+		>
+			<TechnicalFeaturePorts :show="showPorts" />
+		</TechnicalFeatureItem>
 		<TechnicalFeatureItem
 			:transitionName="'bottom'"
 			:bg="'rgba(0, 149, 218, 0.6)'"
@@ -17,10 +23,25 @@
 
 <script>
 import TechnicalFeatureItem from '@/components/technical_features/TechnicalFeatureItem.vue'
+import TechnicalFeaturePorts from '@/components/technical_features/TechnicalFeaturePorts.vue'
 
 export default {
 	components: {
-		TechnicalFeatureItem
+		TechnicalFeatureItem,
+		TechnicalFeaturePorts
+	},
+
+	data() {
+		return {
+			showPorts: false
+		}
+	},
+
+	methods: {
+		blockObservedHandler(data) {
+			console.log(data)
+			setTimeout(() => (this[data.name] = true), data.delay)
+		}
 	}
 }
 </script>
@@ -55,5 +76,12 @@ export default {
         bottom: 0px;
         transform: rotate(180deg);
     }
+}
+
+/* Верстка для мобильных */
+@media (320px <= width < 1024px) {
+	.features-block  {
+		flex-flow: column;
+	}
 }
 </style>
