@@ -9,7 +9,6 @@
 					src="/img/technical-features/display_touch.png"
 					alt
 					class="device"
-					@transitionend="transitionHanler('deviceIsAnimated')"
 				/>
 			</transition>
 			<!-- Картинки на экране -->
@@ -19,7 +18,6 @@
 					src="/img/technical-features/touch_images.jpg"
 					alt
 					:class="['images__item', moveImages ? 'move' : '']"
-					@transitionend="transitionHanler('imageIsTransitionend')"
 				/>
 			</transition>
 		</div>
@@ -30,7 +28,7 @@
 				src="/img/technical-features/hand.png"
 				alt
 				:class="['hand', !handIsAnimated ? 'hidden' : '']"
-				@animationend="transitionHanler('handIsAnimated')"
+				@animationend="handIsAnimated = true"
 			/>
 		</transition>
 	</div>
@@ -72,14 +70,12 @@ export default {
 		animate() {
 			this.showDevice = true
 			this.showHand = true
-		},
-
-		transitionHanler(prop) {
-			this[prop] = true
-			// Не срабатывает transitionend на .imgaes__item
-			if (prop === 'deviceIsAnimated') {
-				setTimeout(() => (this.imageIsTransitionend = true), 700)
-			}
+			setTimeout(() => {
+				this.deviceIsAnimated = true
+			}, 700)
+			setTimeout(() => {
+				this.imageIsTransitionend = true
+			}, 1100)
 		}
 	}
 }
@@ -129,6 +125,7 @@ export default {
 			}
 
 			&.move {
+				transition: transform 2s ease-out .7s;
 				transform: translateX(0%);
 			}
 		}
