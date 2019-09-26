@@ -130,17 +130,17 @@ export default {
             }
 			&.port__dp {
 				left: 56.6%;
-                top: 46.8%;
+                top: 55%;
                 width: 3.2%;
 			}
 			&.port__hdmi {
 				left: 56.6%;
-                top: 46.8%;
+                top: 69.4%;
                 width: 2%;
 			}
 			&.port__usb {
 				left: 56.6%;
-                top: 46.8%;
+				top: 75%;
                 width: 2.5%;
 			}
         }
