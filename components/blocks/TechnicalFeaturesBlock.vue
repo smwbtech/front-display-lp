@@ -23,7 +23,12 @@
 		<TechnicalFeatureItem
 			:transitionName="'top'"
 			:bg="'rgba(0, 149, 218, 1)'"
-		/>
+			:blockName="'showControls'"
+			:delay="5600"
+			@observed="blockObservedHandler"
+		>
+			<TechnicalFeatureControls :show="showControls" />
+		</TechnicalFeatureItem>
 	</section>
 </template>
 
@@ -31,18 +36,21 @@
 import TechnicalFeatureItem from '@/components/technical_features/TechnicalFeatureItem.vue'
 import TechnicalFeaturePorts from '@/components/technical_features/TechnicalFeaturePorts.vue'
 import TechnicalFeatureTouch from '@/components/technical_features/TechnicalFeatureTouch.vue'
+import TechnicalFeatureControls from '@/components/technical_features/TechnicalFeatureControls.vue'
 
 export default {
 	components: {
 		TechnicalFeatureItem,
 		TechnicalFeaturePorts,
-		TechnicalFeatureTouch
+		TechnicalFeatureTouch,
+		TechnicalFeatureControls
 	},
 
 	data() {
 		return {
 			showPorts: false,
-			showTouch: false
+			showTouch: false,
+			showControls: false
 		}
 	},
 
