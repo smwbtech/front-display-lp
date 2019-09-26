@@ -65,9 +65,10 @@ export default {
 					const { isIntersecting } = entry
 					if (isIntersecting) {
 						this.isObserved = true
+						const delay = window.innerWidth < 1024 ? 0 : this.delay
 						this.$emit('observed', {
 							name: this.blockName,
-							delay: this.delay
+							delay
 						})
 						observer.disconnect()
 					}
@@ -119,7 +120,7 @@ export default {
 @media (320px <= width < 1024px) {
 	.feature-item  {
 		width: 100%;
-		height: 100vh;
+		height: 80vh;
 
 		& .feature-item__background {
 			&.bottom {
@@ -134,6 +135,27 @@ export default {
 				transform: translateX(0%);
 			}
 		}
+	}
+}
+
+@media (320px <= width < 1024px) and (orientation: landscape) {
+	.feature-item  {
+		width: 100%;
+		height: 140vh;
+
+		/* & .feature-item__background {
+			&.bottom {
+				transform: translateY(0%);
+				transform: translateX(100%);
+			}
+			&.top {
+				transform: translateY(0);
+				transform: translateX(-100%);
+			}
+			&.active {
+				transform: translateX(0%);
+			}
+		} */
 	}
 }
 </style>

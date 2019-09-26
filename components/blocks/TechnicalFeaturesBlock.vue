@@ -10,10 +10,16 @@
 		>
 			<TechnicalFeaturePorts :show="showPorts" />
 		</TechnicalFeatureItem>
+		<!-- Сенсорный дисплей -->
 		<TechnicalFeatureItem
 			:transitionName="'bottom'"
 			:bg="'rgba(0, 149, 218, 0.6)'"
-		/>
+			:blockName="'showTouch'"
+			:delay="3600"
+			@observed="blockObservedHandler"
+		>
+			<TechnicalFeatureTouch :show="showTouch" />
+		</TechnicalFeatureItem>
 		<TechnicalFeatureItem
 			:transitionName="'top'"
 			:bg="'rgba(0, 149, 218, 1)'"
@@ -24,16 +30,19 @@
 <script>
 import TechnicalFeatureItem from '@/components/technical_features/TechnicalFeatureItem.vue'
 import TechnicalFeaturePorts from '@/components/technical_features/TechnicalFeaturePorts.vue'
+import TechnicalFeatureTouch from '@/components/technical_features/TechnicalFeatureTouch.vue'
 
 export default {
 	components: {
 		TechnicalFeatureItem,
-		TechnicalFeaturePorts
+		TechnicalFeaturePorts,
+		TechnicalFeatureTouch
 	},
 
 	data() {
 		return {
-			showPorts: false
+			showPorts: false,
+			showTouch: false
 		}
 	},
 
