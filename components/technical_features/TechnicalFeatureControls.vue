@@ -1,30 +1,20 @@
 <template>
 	<!-- Комплнент потов -->
-	<transition name="images">
-		<div
-			v-show="show"
-			class="images"
-			@transitionend="IsTransitionend = true"
-		>
+	<transition name="images-appear" type="transition" mode="out-in">
+		<div v-if="show" class="images">
 			<!-- Передняя сторона -->
 			<picture>
 				<source
 					media="(min-width: 1600px)"
-					srcset="
-							`img/technical-features/front_large_desktop.png`
-						"
+					srcset="/img/technical-features/front_large_desktop.png"
 				/>
 				<source
 					media="(min-width: 1024px)"
-					srcset="
-							`img/technical-features/front_mid_desktop.png`
-						"
+					srcset="/img/technical-features/front_mid_desktop.png"
 				/>
 				<source
 					media="(min-width: 320px)"
-					srcset="
-							`img/technical-features/front_mobile.png`
-						"
+					srcset="/img/technical-features/front_mobile.png"
 				/>
 				<img
 					src="/img/technical-features/front.jpg"
@@ -32,7 +22,7 @@
 					:class="[
 						'image__item',
 						'front',
-						IsTransitionend ? 'move' : ''
+						isTransitionend ? 'move' : ''
 					]"
 				/>
 			</picture>
@@ -40,48 +30,35 @@
 			<picture>
 				<source
 					media="(min-width: 1600px)"
-					srcset="
-							`img/technical-features/controlls_large_desktop.png`
-						"
+					srcset="/img/technical-features/controlls_large_desktop.png"
 				/>
 				<source
 					media="(min-width: 1024px)"
-					srcset="
-							`img/technical-features/controlls_mid_desktop.png`
-						"
+					srcset="/img/technical-features/controlls_mid_desktop.png"
 				/>
 				<source
 					media="(min-width: 320px)"
-					srcset="
-							`img/technical-features/controlls_mobile.png`
-						"
+					srcset="/img/technical-features/controlls_mobile.png"
 				/>
 				<img
 					src="/img/technical-features/controlls.png"
-					:class="['controlls_image', IsTransitionend ? 'move' : '']"
+					:class="['controlls_image', isTransitionend ? 'move' : '']"
 					alt
 				/>
 			</picture>
 			<!-- Тыльная сторона -->
-			<!-- Управление  -->
 			<picture>
 				<source
 					media="(min-width: 1600px)"
-					srcset="
-							`img/technical-features/back_large_desktop.png`
-						"
+					srcset="/img/technical-features/back_large_desktop.png"
 				/>
 				<source
 					media="(min-width: 1024px)"
-					srcset="
-							`img/technical-features/back_mid_desktop.png`
-						"
+					srcset="/img/technical-features/back_mid_desktop.png"
 				/>
 				<source
 					media="(min-width: 320px)"
-					srcset="
-							`img/technical-features/back_mobile.png`
-						"
+					srcset="/img/technical-features/back_mobile.png"
 				/>
 				<img
 					src="/img/technical-features/back.jpg"
@@ -89,7 +66,7 @@
 					:class="[
 						'image__item',
 						'back',
-						IsTransitionend ? 'move' : ''
+						isTransitionend ? 'move' : ''
 					]"
 				/>
 			</picture>
@@ -107,8 +84,124 @@ export default {
 
 	data() {
 		return {
-			IsTransitionend: false
+			isTransitionend: false
+		}
+	},
+
+	watch: {
+		show(val, oldVal) {
+			if (val) setTimeout(() => (this.isTransitionend = true), 2000)
 		}
 	}
 }
 </script>
+
+<style media="screen">
+.images {
+	position: relative;
+	z-index: 102;
+	height: 100%;
+	width: 100%;
+
+	& .controlls_image {
+		position: absolute;
+		bottom: calc(50% - (549px / 2) + 13px);
+		right: 89px;
+		z-index: 105;
+		box-shadow: 0px 0px 19px rgba(255, 255, 255, 0.8);
+		transition: all 1s ease-out;
+		transition-delay: 3s;
+
+		&.move {
+			bottom: calc(50% - (549px / 2) + 75px);
+			right: 308px;
+		}
+	}
+
+	& .image__item {
+		position: absolute;
+		z-index: 102;
+
+		&.front,
+		&.back {
+			top: calc(50% - (549px / 2));
+			right: 0;
+			opacity: 0;
+		}
+
+		&.front {
+			opacity: 1;
+			transform: translateY(0px);
+			transition: opacity 0.3s ease-in, transform 0.3s ease-out;
+			transition-delay: 2.7s;
+
+			&.move {
+				opacity: 0;
+				transform: translateY(40px);
+			}
+		}
+
+		&.back {
+			opacity: 0;
+			transform: translateY(-40px);
+			transition: opacity 0.3s ease-in, transform 0.3s ease-out;
+			transition-delay: 3s;
+
+			&.move {
+				opacity: 1;
+				transform: translateY(0px);
+			}
+		}
+	}
+}
+
+/* Переходы появления */
+
+.images-appear-enter {
+	opacity: 0;
+	transform: translateY(-40px);
+}
+
+.images-appear-enter-active {
+	transition: opacity 0.7s ease-in, transform 0.7s ease-out;
+}
+
+@media (1024px <= width < 1600px) {
+	.images {
+		& .controlls_image {
+			position: absolute;
+			bottom: calc(50% - (400px / 2) + 10px);
+			right: 69px;
+			z-index: 105;
+			box-shadow: 0px 0px 19px rgba(255, 255, 255, 0.8);
+			transition: all 1s ease-out;
+			transition-delay: 3s;
+
+			&.move {
+				bottom: calc(50% - (400px / 2) + 50px);
+				right: 224px;
+			}
+		}
+		& .image__item {
+			&.front,
+			&.back {
+				top: calc(50% - (400px / 2));
+				right: 0;
+			}
+		}
+	}
+}
+
+/* Мобильные устройства */
+@media (320px <= width < 1024px) {
+	.images {
+		& .image__item {
+			&.front,
+			&.back {
+				top: calc(50% - (320px / 2));
+				right: 0;
+			}
+		}
+	}
+}
+</style>
