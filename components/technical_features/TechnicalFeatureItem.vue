@@ -119,6 +119,21 @@ export default {
 @media (320px <= width < 1024px) {
 	.feature-item  {
 		width: 100%;
+		height: 100vh;
+
+		& .feature-item__background {
+			&.bottom {
+				transform: translateY(0%);
+				transform: translateX(100%);
+			}
+			&.top {
+				transform: translateY(0);
+				transform: translateX(-100%);
+			}
+			&.active {
+				transform: translateX(0%);
+			}
+		}
 	}
 }
 </style>
