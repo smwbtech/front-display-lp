@@ -4,22 +4,65 @@
 		<transition name="device">
 			<div v-show="show" class="device">
 				<!-- Изображение портов -->
-				<img
-					v-for="(port, index) in ports"
-					:key="port"
-					:class="[
-						`${classes[index]}`,
-						'port',
-						dataSet[port] ? 'active' : ''
-					]"
-					:src="`img/technical-features/${classes[index]}.png`"
-				/>
-				<!-- Подписи -->
+				<picture v-for="(port, index) in ports" :key="port">
+					<source
+						media="(min-width: 1600px)"
+						:srcset="
+							`img/technical-features/${classes[index]}_large_desktop.png`
+						"
+					/>
+					<source
+						media="(min-width: 1024px)"
+						:srcset="
+							`img/technical-features/${classes[index]}_mid_desktop.png`
+						"
+					/>
+					<source
+						media="(min-width: 320px)"
+						:srcset="
+							`img/technical-features/${classes[index]}_mobile.png`
+						"
+					/>
+					<img
+						:class="[
+							`${classes[index]}`,
+							'port',
+							dataSet[port] ? 'active' : ''
+						]"
+						:src="`img/technical-features/${classes[index]}.png`"
+					/>
+				</picture>
 
-				<img
-					class="image__device"
-					src="img/technical-features/ports.png"
-				/>
+				<!-- Подписи -->
+				<transition-group name="text" class="device-text" tag="div">
+					<span
+						v-for="(port, index) in ports"
+						:key="`${port}-text`"
+						v-show="dataSet[port]"
+						:class="['text', `text-${classes[index]}`]"
+						>{{ names[index] }}</span
+					>
+				</transition-group>
+
+				<!-- Основной девайс -->
+				<picture>
+					<source
+						media="(min-width: 1600px)"
+						srcset="img/technical-features/ports_large_desktop.png"
+					/>
+					<source
+						media="(min-width: 1024px)"
+						srcset="img/technical-features/ports_mid_desktop.png"
+					/>
+					<source
+						media="(min-width: 320px)"
+						srcset="img/technical-features/ports_mobile.png"
+					/>
+					<img
+						class="image__device"
+						src="img/technical-features/ports_large_desktop.png"
+					/>
+				</picture>
 			</div>
 		</transition>
 	</div>
@@ -56,7 +99,6 @@ export default {
 
 	computed: {
 		dataSet() {
-			console.log(this.$data)
 			return this.$data
 		}
 	},
@@ -98,10 +140,9 @@ export default {
     height: 100%;
 
     & .device {
-        width: 33%;
-
+		position: relative;
         & .image__device {
-            width: 100%;
+
         }
 
         /* Порты */
@@ -118,32 +159,71 @@ export default {
             }
 
             &.port__rs {
-                left: 57%;
-                top: 19.5%;
-                width: 2.9%;
+				right: 40px;
+				top: 176px;
             }
 
             &.port__vga {
-                left: 56.6%;
-                top: 46.8%;
-                width: 2.9%;
+				right: 42px;
+				top: 420px;
             }
 			&.port__dp {
-				left: 56.6%;
-                top: 55%;
-                width: 3.2%;
+				right: 40px;
+				top: 498px;
 			}
 			&.port__hdmi {
-				left: 56.6%;
-                top: 69.4%;
-                width: 2%;
+				right: 47px;
+				top: 623px;
 			}
 			&.port__usb {
-				left: 56.6%;
-				top: 75%;
-                width: 2.5%;
+				right: 44px;
+				top: 675px;
 			}
-        }
+        } /* Порты end*/
+
+		/* Подписи */
+
+		& .device-text {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+
+			& .text {
+				color: var(--blue);
+				position: absolute;
+				text-align: left;
+				right: -150px;
+				min-width: 100px;
+
+				&:before {
+					display: block;
+					position: absolute;
+					top: calc(50% - 2px);
+					left: -55px;
+					content: "";
+					height: 3px;
+					width: 50px;
+					background: linear-gradient(45deg, rgba(0, 149, 218, 0),rgba(0, 149, 218, 1));
+					transform-origin: right;
+				}
+
+				&.text-port__rs {
+					top: 184px;
+				}
+				&.text-port__vga {
+					top: 425px;
+				}
+				&.text-port__dp {
+					top: 503px;
+				}
+				&.text-port__hdmi {
+					top: 628px;
+				}
+				&.text-port__usb {
+					top: 680px;
+				}
+			}
+		}
     }
 }
 
@@ -158,123 +238,119 @@ export default {
     transition: opacity 0.3s ease-in, transform 0.3s ease-out;
 }
 
-/* Выравнивание портов в зависимости от ширины экрана */
-@media (width: 1680px), (width: 1440px) {
-	.image {
-        & .device {
-            & .port {
-                &.port__rs {
-                    top: 24.9%;
-                }
-                &.port__vga {
-                    top: 47.3%;
-                }
-				&.port__dp {
-					top: 54.6%;
-				}
-				&.port__hdmi {
-					top: 65.8%;
-				}
-				&.port__usb {
-					top: 70.7%;
-				}
-            }
-        }
-    }
+.text-enter {
+	opacity: 0;
+	transform: translateX(20px);
+	& .text:before {
+		transform: scale(0);
+	}
 }
 
-@media (width: 1600px), (width: 1366px) {
-	.image {
-        & .device {
-            & .port {
-                &.port__rs {
-                    top: 22.5%;
-                }
-                &.port__vga {
-                    top: 46.8%;
-                }
-				&.port__dp {
-					top: 54.8%;
-				}
-				&.port__hdmi {
-					top: 67.6%;
-				}
-				&.port__usb {
-					top: 72.8%;
-				}
-            }
-        }
-    }
+.text-enter-active {
+	transition: opacity 0.2s ease-in, transform 0.2s ease-out;
+	& .text:before {
+		transition: transform .4s ease-out;
+	}
 }
 
-@media (width: 1280px) {
-	.image {
-        & .device {
-            & .port {
-                &.port__rs {
-                    top: 25.3%;
-                }
-                &.port__vga {
-                    top: 47.6%;
-                }
-				&.port__dp {
-					top: 54.6%;
-				}
-				&.port__hdmi {
-					top: 65.7%;
-				}
-				&.port__usb {
-					top: 70.7%;
-				}
-            }
-        }
-    }
-}
-
-@media (width: 1024px) {
-	.image {
-        & .device {
-            & .port {
-                &.port__rs {
-                    top: 29.5%;
-                }
-                &.port__vga {
-					top: 47.8%;
-                }
-				&.port__dp {
-					top: 53.6%;
-				}
-				&.port__hdmi {
-					top: 62.9%;
-				}
-				&.port__usb {
-					top: 66.8%;
-				}
-            }
-        }
-    }
-}
-
-/* Retina */
-/* MacBook Pro 13 */
-@media (-webkit-min-device-pixel-ratio: 2) and (width: 1440px) {
+/* Вырвавнивание портов и надписей */
+/* Небольшие мониторы */
+@media ( 1024px <= width < 1600px) {
 	.image {
 		& .device {
 			& .port {
 				&.port__rs {
-					top: 22.7%;
+					right: 25px;
+					top: 118px;
 				}
 				&.port__vga {
-					top: 47.3%;
+					right: 27px;
+					top: 282px;
 				}
 				&.port__dp {
-					top: 55.0%;
+					right: 26px;
+					top: 334px;
 				}
 				&.port__hdmi {
-					top: 67.0%;
+					right: 31px;
+					top: 418px;
 				}
 				&.port__usb {
-					top: 73.0%;
+					right: 29px;
+					top: 453px;
+				}
+			}
+
+			& .device-text {
+				& .text {
+					right: -120px;
+					font-size: .9em;
+					&.text-port__rs {
+						top: 120px;
+					}
+					&.text-port__vga {
+						top: 285px;
+					}
+					&.text-port__dp {
+						top: 338px;
+					}
+					&.text-port__hdmi {
+						top: 420px;
+					}
+					&.text-port__usb {
+						top: 455px;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Мобильные устройства */
+@media ( 320px <= width < 1024px) {
+	.image {
+		& .device {
+			& .port {
+				&.port__rs {
+					right: 13px;
+					top: 62px;
+				}
+				&.port__vga {
+					right: 15px;
+					top: 149px;
+				}
+				&.port__dp {
+					right: 14px;
+					top: 177px;
+				}
+				&.port__hdmi {
+					right: 16px;
+					top: 222px;
+				}
+				&.port__usb {
+					right: 15px;
+					top: 241px;
+				}
+			}
+			& .device-text {
+				& .text {
+					right: -120px;
+					font-size: .9em;
+					&.text-port__rs {
+						top: 62px;
+					}
+					&.text-port__vga {
+						top: 149px;
+					}
+					&.text-port__dp {
+						top: 177px;
+					}
+					&.text-port__hdmi {
+						top: 222px;
+					}
+					&.text-port__usb {
+						top: 241px;
+					}
 				}
 			}
 		}
@@ -282,7 +358,7 @@ export default {
 }
 
 /* MacBook Pro 15 */
-@media (-webkit-min-device-pixel-ratio: 2) and (width: 2880px) {
+/* @media (-webkit-min-device-pixel-ratio: 2) and (width: 2880px) {
 	.image {
 		& .device {
 			& .port {
@@ -295,5 +371,5 @@ export default {
 			}
 		}
 	}
-}
+} */
 </style>
