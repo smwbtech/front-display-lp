@@ -169,6 +169,15 @@ export default {
                 &.port__vga {
                     top: 47.3%;
                 }
+				&.port__dp {
+					top: 54.6%;
+				}
+				&.port__hdmi {
+					top: 65.8%;
+				}
+				&.port__usb {
+					top: 70.7%;
+				}
             }
         }
     }
@@ -184,6 +193,15 @@ export default {
                 &.port__vga {
                     top: 46.8%;
                 }
+				&.port__dp {
+					top: 54.8%;
+				}
+				&.port__hdmi {
+					top: 67.6%;
+				}
+				&.port__usb {
+					top: 72.8%;
+				}
             }
         }
     }
@@ -197,8 +215,17 @@ export default {
                     top: 25.3%;
                 }
                 &.port__vga {
-                    top: 52.6%;
+                    top: 47.6%;
                 }
+				&.port__dp {
+					top: 54.6%;
+				}
+				&.port__hdmi {
+					top: 65.7%;
+				}
+				&.port__usb {
+					top: 70.7%;
+				}
             }
         }
     }
@@ -212,8 +239,17 @@ export default {
                     top: 29.5%;
                 }
                 &.port__vga {
-                    top: 56.8%;
+					top: 47.8%;
                 }
+				&.port__dp {
+					top: 53.6%;
+				}
+				&.port__hdmi {
+					top: 62.9%;
+				}
+				&.port__usb {
+					top: 66.8%;
+				}
             }
         }
     }
