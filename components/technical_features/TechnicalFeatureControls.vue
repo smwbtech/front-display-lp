@@ -2,6 +2,11 @@
 	<!-- Комплнент потов -->
 	<transition name="images-appear" type="transition" mode="out-in">
 		<div v-if="show" class="images">
+			<transition name="title">
+				<h2 v-show="isTransitionend" class="title">
+					Кастомизация управления
+				</h2>
+			</transition>
 			<!-- Передняя сторона -->
 			<picture>
 				<source
@@ -103,6 +108,15 @@ export default {
 	height: 100%;
 	width: 100%;
 
+	& .title {
+		position: absolute;
+		z-index: 102;
+		bottom: 10%;
+		width: 100%;
+		text-align: center;
+		letter-spacing: 5px;
+	}
+
 	& .controlls_image {
 		position: absolute;
 		bottom: calc(50% - (549px / 2) + 13px);
@@ -188,7 +202,7 @@ export default {
 }
 
 /* Мобильные устройства */
-@media (320px <= width < 1024px), (1024px < width <= 1200px) {
+@media (320px <= width < 1024px), (1024px <= width <= 1200px) {
 	.images {
 		& .controlls_image {
 			bottom: calc(50% - (400px / 2) + 46px);
@@ -208,5 +222,23 @@ export default {
 			}
 		}
 	}
+}
+
+@media (320px <= width < 1024px) {
+	.images {
+		& .title {
+			font-size: 0.8em;
+			top: 10px;
+		}
+	}
+}
+
+.title-enter {
+	opacity: 0;
+	transform: translateY(-30px);
+}
+
+.title-enter-active {
+	transition: opacity 0.3s ease-in, transform 0.3s ease-out;
 }
 </style>
