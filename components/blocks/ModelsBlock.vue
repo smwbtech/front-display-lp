@@ -103,7 +103,6 @@ export default {
 						: this.column * 8 + 10 * 7 + this.marginSides
 			}
 		},
-
 		setHeight(h) {
 			if (this.height < h) this.height = h
 		}
@@ -127,6 +126,7 @@ export default {
 	& .models {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		& .models__controls {
 			width: calc(var(--column) * 2 + var(--gutter) * 1);
 			fill: var(--blue);
