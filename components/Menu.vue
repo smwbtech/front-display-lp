@@ -49,8 +49,12 @@ export default {
 					target: '.display-block'
 				},
 				{
-					name: 'особенности',
+					name: 'защита',
 					target: '.features-block'
+				},
+				{
+					name: 'особенности',
+					target: '.technical-block'
 				},
 				{
 					name: 'модели',
@@ -164,6 +168,7 @@ position: relative;
 				}
 
 				& .buy-btn {
+					width: calc(var(--column) * 3 + var(--gutter) * 2);
 					& .buy {
 						font-size: 1.2em;
 					}
