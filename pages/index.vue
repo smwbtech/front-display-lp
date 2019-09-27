@@ -67,6 +67,14 @@
 				@close-modal="showModalWindow = false"
 			></ModelFullView>
 		</transition>
+		<!-- Экран загрузки -->
+		<transition name="loading">
+			<LoadingIndicator
+				v-show="!isLoaded"
+				:current="imgLoadedCounter"
+				:total="preloadImages.length"
+			/>
+		</transition>
 	</div>
 </template>
 
@@ -78,6 +86,7 @@ import FeaturesBlock from '@/components/blocks/FeaturesBlock.vue'
 import TechnicalFeaturesBlock from '@/components/blocks/TechnicalFeaturesBlock.vue'
 import ModelsBlock from '@/components/blocks/ModelsBlock.vue'
 import ModelFullView from '@/components/ModelFullView.vue'
+import LoadingIndicator from '@/components/LoadingIndicator.vue'
 
 import { getToken } from '@/assets/js/getToken.js'
 import { getItems } from '@/assets/js/getItems.js'
@@ -90,7 +99,8 @@ export default {
 		FeaturesBlock,
 		TechnicalFeaturesBlock,
 		ModelsBlock,
-		ModelFullView
+		ModelFullView,
+		LoadingIndicator
 	},
 
 	data() {
@@ -100,7 +110,21 @@ export default {
 			dataLoaded: false, // true - данные о девайсах загружены
 			sectionId: 297677, // id секции каталога nnz-ipc.ru, откуда получаем информацию о товарах
 			currentIndex: 0, // девайс, который просматриваем
-			items: [] // массив, содержащий объекты товаров
+			items: [], // массив, содержащий объекты товаров,
+			imgLoadedCounter: 0,
+			preloadImages: [
+				'/img/first-display/background.jpg',
+				'/img/features-display/cold.png',
+				'/img/features-display/hot.png',
+				'/img/features-display/sand.png',
+				'/img/features-display/water.png'
+			]
+		}
+	},
+
+	computed: {
+		isLoaded() {
+			return this.imgLoadedCounter === this.preloadImages.length
 		}
 	},
 
@@ -114,6 +138,14 @@ export default {
 		const token = await getToken()
 		const items = await getItems(token)
 		return { items }
+	},
+
+	beforeMount() {
+		for (const item of this.preloadImages) {
+			const img = new Image()
+			img.src = item
+			img.addEventListener('load', () => this.imgLoadedCounter++)
+		}
 	},
 
 	methods: {
@@ -194,6 +226,19 @@ export default {
 .modal-appear-enter-active,
 .modal-appear-leave-active {
 	transition: opacity .3s ease-in, transform .35s ease-out;
+}
+
+.loading-enter,
+.loading-leave-to {
+	opacity: 0;
+}
+
+.loading-leave-to {
+	transform: scale(2);
+}
+
+.loading-leave-active {
+	transition: opacity .3s ease-in 1s, transform .3s ease-out 1s;
 }
 
 /* Верстка для мобильных */
