@@ -86,11 +86,11 @@ export default {
     }
 
     &:before {
-        top: 0px;
+        top: -1px;
     }
 
     &:after {
-        bottom: 0px;
+        bottom: -1px;
         transform: rotate(180deg);
     }
 }
