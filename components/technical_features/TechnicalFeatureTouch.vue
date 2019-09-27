@@ -2,6 +2,9 @@
 	<!-- Комплнент потов -->
 	<div class="image">
 		<!-- Дисплей -->
+		<transition name="title">
+			<h2 v-show="moveImages" class="title">Сенсорный экран</h2>
+		</transition>
 		<div class="display-wrapper">
 			<transition name="display" type="transition" mode="out-in">
 				<img
@@ -93,6 +96,15 @@ export default {
     height: 100%;
     overflow: hidden;
 
+	& .title {
+		position: absolute;
+		z-index: 102;
+		top: 20%;
+		width: 100%;
+		text-align: center;
+		letter-spacing: 5px;
+	}
+
 	& .display-wrapper {
 		position: relative;
 		width: 90%;
@@ -146,11 +158,12 @@ export default {
 
 /* Дисплей */
 .display-enter {
-transform: translateX(80%);
+transform: scale(0);
+opacity: 0;
 }
 
 .display-enter-active {
-transition: transform 0.7s ease-in;
+transition: transform 0.7s ease-in, opacity .7s ease-out;
 }
 
 /* Рука */
@@ -158,6 +171,15 @@ transition: transform 0.7s ease-in;
 .hand-enter-active {
 animation: hand 2s linear forwards;
 animation-delay: 0.7s;
+}
+
+.title-enter {
+	opacity: 0;
+	transform: translateX(-100%);
+}
+
+.title-enter-active {
+	transition: transform 2s ease-out, opacity .7s ease-in;
 }
 
 /* Картинки */
@@ -200,6 +222,16 @@ transform: translateY(0%) translateX(0);
 		& .hand {
 			width: 45%;
 			bottom: 10%;
+		}
+	}
+}
+
+/* Мобильные устройства */
+@media ( 320px <= width < 1024px) {
+	.image {
+		& .title {
+			top: 10%;
+			font-size: .8em;
 		}
 	}
 }
