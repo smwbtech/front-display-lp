@@ -84,6 +84,7 @@ export default {
 .menu {
 	position: fixed;
 	top: 0;
+	left: 0;
 	height: 120px;
     padding-left: calc(var(--column) + var(--gutter));
     display: flex;
@@ -113,11 +114,12 @@ export default {
 
 	/* Лого Front-Display */
     & .logo {
-position: relative;
+		position: relative;
 		z-index: 1002;
 		display: block;
         margin-right: calc(var(--column) + var(--gutter) * 2);
 		width: calc(var(--column) * 2 + var(--row) * 1);
+		height: 100%;
     }
 
 	/* Список разделов навигации */
