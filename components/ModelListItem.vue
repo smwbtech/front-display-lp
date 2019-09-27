@@ -1,7 +1,12 @@
 <template lang="html">
 	<div class="model-item">
 		<!-- Превью девайса -->
-		<img :src="model.previewPhoto.value" alt="" class="model-item__image" />
+		<img
+			:src="model.previewPhoto.value"
+			alt=""
+			class="model-item__image"
+			@click.prevent="$emit('more-info', index)"
+		/>
 		<!-- Название модели -->
 		<h4 class="model-item__title">
 			{{ model.name }}
@@ -76,6 +81,10 @@ export default {
 				? 'в наличии'
 				: 'под заказ'
 		}
+	},
+
+	mounted() {
+		this.$emit('set-height', this.$el.offsetHeight)
 	}
 }
 </script>
@@ -92,12 +101,19 @@ export default {
     padding: 10px;
     background-color: #fff;
     box-shadow: 3px 3px 12px rgba(0,0,0,.1);
+	border: 3px solid rgba(0, 149, 218, 0);
 	text-align: center;
+	transition: border .2s ease-in;
+
+	&:hover {
+		border: 3px solid #0095da;
+	}
 
 	/* Превью изображения */
     & .model-item__image {
         max-width: 90%;
 		min-height: 1px;
+		cursor: pointer;
     }
 
 	/* Описание модели */
@@ -172,6 +188,18 @@ export default {
 			text-decoration: none;
 		}
     } /* end Кнопки действия */
+}
+
+@media (width: 1024px) {
+	.model-item {
+		& .controls {
+			flex-wrap: wrap;
+			& > * {
+				width: 100%;
+				margin-bottom: 20px;
+			}
+		}
+	}
 }
 
 @media (320px <= width < 1024px) {
