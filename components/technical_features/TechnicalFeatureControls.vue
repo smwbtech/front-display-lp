@@ -9,7 +9,7 @@
 					srcset="/img/technical-features/front_large_desktop.png"
 				/>
 				<source
-					media="(min-width: 1024px)"
+					media="(min-width: 1201px)"
 					srcset="/img/technical-features/front_mid_desktop.png"
 				/>
 				<source
@@ -33,7 +33,7 @@
 					srcset="/img/technical-features/controlls_large_desktop.png"
 				/>
 				<source
-					media="(min-width: 1024px)"
+					media="(min-width: 1201px)"
 					srcset="/img/technical-features/controlls_mid_desktop.png"
 				/>
 				<source
@@ -53,7 +53,7 @@
 					srcset="/img/technical-features/back_large_desktop.png"
 				/>
 				<source
-					media="(min-width: 1024px)"
+					media="(min-width: 1201px)"
 					srcset="/img/technical-features/back_mid_desktop.png"
 				/>
 				<source
@@ -166,16 +166,11 @@ export default {
 	transition: opacity 0.7s ease-in, transform 0.7s ease-out;
 }
 
-@media (1024px <= width < 1600px) {
+@media (1200px < width < 1600px) {
 	.images {
 		& .controlls_image {
-			position: absolute;
 			bottom: calc(50% - (400px / 2) + 10px);
 			right: 69px;
-			z-index: 105;
-			box-shadow: 0px 0px 19px rgba(255, 255, 255, 0.8);
-			transition: all 1s ease-out;
-			transition-delay: 3s;
 
 			&.move {
 				bottom: calc(50% - (400px / 2) + 50px);
@@ -193,13 +188,23 @@ export default {
 }
 
 /* Мобильные устройства */
-@media (320px <= width < 1024px) {
+@media (320px <= width < 1024px), (1024px < width <= 1200px) {
 	.images {
+		& .controlls_image {
+			bottom: calc(50% - (400px / 2) + 46px);
+			right: 49px;
+
+			&.move {
+				bottom: calc(50% - (400px / 2) + 80px);
+				right: 160px;
+			}
+		}
+
 		& .image__item {
 			&.front,
 			&.back {
 				top: calc(50% - (320px / 2));
-				right: 0;
+				right: -20px;
 			}
 		}
 	}
