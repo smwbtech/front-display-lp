@@ -241,10 +241,10 @@ export default {
 						display: block;
 						position: absolute;
 						z-index: 20;
-						bottom: -40px;
+						bottom: -10px;
 						left: 0;
 						width: calc(var(--column) * 3 + var(--gutter) * 2);
-						height: 20px;
+						height: 5px;
 						background-color: #000;
 					}
 				}
@@ -276,11 +276,11 @@ export default {
 						margin-bottom: 20px;
 						display: flex;
 						justify-content: space-between;
-						background-color: rgba(0,0,0,0);
-						transition: background-color .2s ease-in;
+						border: 2px solid rgba(0, 149, 218, 0);
+						transition: border .2s ease-in;
 
 						&:hover {
-							background-color: rgba(0,0,0,.1);
+							border: 2px solid rgba(0, 149, 218, 1);
 						}
 
 						/* Название характеристики */
