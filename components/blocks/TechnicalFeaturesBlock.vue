@@ -1,5 +1,5 @@
 <template lang="html">
-	<section class="features-block">
+	<section class="technical-block">
 		<!-- Порты -->
 		<TechnicalFeatureItem
 			:transitionName="'top'"
@@ -65,7 +65,7 @@ export default {
 
 <style lang="css" scoped>
 
-.features-block {
+.technical-block {
     min-height: 100vh;
     position: relative;
     display: flex;
@@ -97,7 +97,7 @@ export default {
 
 /* Верстка для мобильных */
 @media (320px <= width < 1024px) {
-	.features-block  {
+	.technical-block  {
 		flex-flow: column;
 	}
 }
