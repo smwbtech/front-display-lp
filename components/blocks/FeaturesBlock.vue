@@ -62,7 +62,13 @@ export default {
 			isChanging: false,
 			current: 0,
 			timerId: undefined,
-			navComponents: ['WaterNav', 'SandNav', 'ColdNav', 'HotNav'],
+			navComponents: [
+				'WaterNav',
+				'SandNav',
+				'ColdNav',
+				'HotNav',
+				'BatNav'
+			],
 			features: [
 				{
 					name: 'water',
@@ -91,6 +97,13 @@ export default {
 					title: 'Работа в жару',
 					description:
 						'Устройства способны исправно работать при температурах до +60 °C, что характерно для закрытых помещений с плохой вентиляцией, щитов с высокой плотностью компонентов, горячих цехов, а так же шахт вентиляции. Условия высоких температур являются рабочим режимом монитора и не приводят к повреждению его внутренних компонентов, а стабильность работы дисплея может быть гарантирована.'
+				},
+				{
+					name: 'bat',
+					illustration: 'img/features-display/bat.png',
+					title: 'Вандалоустойчивость',
+					description:
+						'Лицевая панель монитора изготовлена из 10 мм листа алюминия и закалённого стекла, что обеспечивает высокую прочность и вандалоустойчивость устройства. Толстое закаленное стекло позволяет избежать повреждения экрана твёрдыми предметами, перчатками, а также защищает от разрушения при чрезмерных усилиях нажатия на экран.'
 				}
 			]
 		}
@@ -322,6 +335,17 @@ export default {
 .hot-enter,
 .hot-leave-to {
 	opacity: 0;
+}
+
+.bat-enter,
+.bat-leave-to {
+	opacity: 0;
+	transform: rotate(-45deg);
+}
+
+.bat-enter-active,
+.bat-leave-active {
+	transition: opacity .3s ease-in, transform .3s ease-out;
 }
 
 /* Заголовок */

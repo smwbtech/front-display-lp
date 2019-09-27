@@ -117,7 +117,8 @@ export default {
 				'/img/features-display/cold.png',
 				'/img/features-display/hot.png',
 				'/img/features-display/sand.png',
-				'/img/features-display/water.png'
+				'/img/features-display/water.png',
+				'/img/features-display/bat.png'
 			]
 		}
 	},

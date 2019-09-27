@@ -86,7 +86,7 @@ export default {
 			portsNum: 0,
 			intervalId: undefined,
 			ports: ['showRs', 'showVga', 'showDp', 'showHdmi', 'showUsb'],
-			names: ['RS-232', 'VGA', 'DisplayPort', 'HDMI', 'USB'],
+			names: ['RS-232', 'VGA', 'DVI-D', 'DisplayPort 1.1', 'USB'],
 			classes: [
 				'port__rs',
 				'port__vga',

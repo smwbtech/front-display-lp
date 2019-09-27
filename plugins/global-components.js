@@ -6,6 +6,7 @@ import WaterNav from '@/assets/img/features/water_nav.svg'
 import SandNav from '@/assets/img/features/sand_nav.svg'
 import ColdNav from '@/assets/img/features/cold_nav.svg'
 import HotNav from '@/assets/img/features/hot_nav.svg'
+import BatNav from '@/assets/img/features/bat_nav.svg'
 import ArrowLeft from '@/assets/img/left-arrow.svg'
 import ArrowRight from '@/assets/img/right-arrow.svg'
 import CloseButton from '@/assets/img/cross.svg'
@@ -18,6 +19,7 @@ const globals = {
 	SandNav,
 	ColdNav,
 	HotNav,
+	BatNav,
 	ArrowLeft,
 	ArrowRight,
 	CloseButton
