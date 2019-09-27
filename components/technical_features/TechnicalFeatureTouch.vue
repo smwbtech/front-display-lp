@@ -147,6 +147,7 @@ export default {
         z-index: 103;
         position: absolute;
         bottom: 0;
+		left: 30%;
 		width: 40%;
 
         &.hidden {

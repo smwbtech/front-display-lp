@@ -243,13 +243,14 @@ export default {
     position: relative;
 	display: flex;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100%;
 
 	/* Текстовый контент */
 	& .text-content {
 		width: calc(var(--column) * 12 + var(--gutter) * 12);
 		padding-left: calc(var(--column) + var(--gutter) + 50px);
 		padding-right: calc(var(--column) * 3 + var(--gutter) * 3);
+		min-height: 100vh;
 		padding-top: 150px;
 		display: flex;
 		flex-flow: column;
@@ -464,6 +465,7 @@ export default {
 
 		& .text-content {
 			width: 100%;
+			min-height: 0vh;
 			height: auto;
 			padding: 20px;
 			padding-top: 40px;

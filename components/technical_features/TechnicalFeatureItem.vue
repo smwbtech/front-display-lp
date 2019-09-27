@@ -86,7 +86,7 @@ export default {
     position: relative;
     z-index: 9;
     min-width: 33.4%;
-    min-height: 100%;
+    min-height: 100vh;
 
     & .feature-item__background {
 		position: absolute;
