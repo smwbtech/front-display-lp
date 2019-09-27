@@ -1,5 +1,10 @@
 <template lang="html">
 	<div class="image">
+		<transition name="title" mode="out-in">
+			<h2 v-show="portsNum === ports.length" class="title">
+				Широкий набор портов
+			</h2>
+		</transition>
 		<!-- Изображение девайста с боку -->
 		<transition name="device">
 			<div v-show="show" class="device">
@@ -138,6 +143,13 @@ export default {
     justify-content: center;
     background-color: rgba(0, 149, 218, 0);
     height: 100%;
+	& .title {
+		position: absolute;
+		left: 20%;
+		letter-spacing: 5px;
+		writing-mode: vertical-rl;
+		transform: rotate(180deg) translateX(0px);
+	}
 
     & .device {
 		position: relative;
@@ -253,6 +265,15 @@ export default {
 	}
 }
 
+.title-enter {
+	transform: translateX(-30px);
+	opacity: 0;
+}
+
+.title-enter-active {
+	transition: opacity .3s ease-in, transform .3s ease-out;
+}
+
 /* Вырвавнивание портов и надписей */
 /* Небольшие мониторы */
 @media ( 1024px <= width < 1600px) {
@@ -309,6 +330,9 @@ export default {
 /* Мобильные устройства */
 @media ( 320px <= width < 1024px) {
 	.image {
+		& .title {
+			font-size: .8em;
+		}
 		& .device {
 			& .port {
 				&.port__rs {
@@ -356,20 +380,4 @@ export default {
 		}
 	}
 }
-
-/* MacBook Pro 15 */
-/* @media (-webkit-min-device-pixel-ratio: 2) and (width: 2880px) {
-	.image {
-		& .device {
-			& .port {
-				&.port__rs {
-					top: 25.2%;
-				}
-				&.port__vga {
-					top: 47.8%;
-				}
-			}
-		}
-	}
-} */
 </style>
