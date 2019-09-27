@@ -11,7 +11,7 @@
 				]"
 				@click="moveCarousel(-1)"
 			></ArrowLeft>
-			<div class="wrapper">
+			<div class="wrapper" :style="wrapperStyle">
 				<div class="models-list" :style="styleObj">
 					<ModelListItem
 						v-for="(model, index) in items"
@@ -19,6 +19,7 @@
 						:model="model"
 						:index="index"
 						@more-info="(index) => $emit('show-modal', index)"
+						@set-height="setHeight"
 					></ModelListItem>
 				</div>
 			</div>
@@ -51,6 +52,7 @@ export default {
 		return {
 			slide: 0,
 			left: 0,
+			height: 0,
 			window: null
 		}
 	},
@@ -75,6 +77,11 @@ export default {
 					this.items.length * this.marginSides}%`,
 				left: `${this.left}px`
 			}
+		},
+		wrapperStyle() {
+			return {
+				height: `${this.height + 40}px`
+			}
 		}
 	},
 	mounted() {
@@ -95,6 +102,10 @@ export default {
 						? this.column * 5 + 20 * 4 + this.marginSides
 						: this.column * 8 + 10 * 7 + this.marginSides
 			}
+		},
+
+		setHeight(h) {
+			if (this.height < h) this.height = h
 		}
 	}
 }
@@ -130,7 +141,6 @@ export default {
 		}
 		& .wrapper {
 			width: calc(var(--column) * 18 + var(--gutter) * 16);
-			min-height: calc(var(--row) * 6 + var(--column) * 5);
 			overflow: hidden;
 			position: relative;
 			& .models-list {
