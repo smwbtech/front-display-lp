@@ -150,6 +150,15 @@ export default {
 			observer.observe(el)
 		},
 		/**
+		 * Обработка событий загрузки картинки
+		 * для более плавного переключения слайдера
+		 * @return {undefined}
+		 */
+		imageLoadHandler() {
+			console.log('image loaded')
+			this.imageLoaded = true
+		},
+		/**
 		 * Меняем слайд
 		 * @param  {number} i 	 - номер слайда
 		 * @return {undefined}   [description]
@@ -157,8 +166,9 @@ export default {
 		changeSlide(i) {
 			if (i !== this.current) {
 				this.isChanging = true
+				this.imageLoaded = false
 				this.current = i
-				setTimeout(() => (this.isChanging = false), 300)
+				setTimeout(() => (this.isChanging = false), 400)
 			}
 		},
 		/**
@@ -308,7 +318,7 @@ export default {
 .water-leave-active,
 .sand-enter-active,
 .sand-leave-active {
-	transition: opacity .3s ease-in, transform .3s ease-out;
+	transition: opacity .5s ease-in, transform .5s ease-out;
 }
 
 .water-enter,
@@ -327,7 +337,7 @@ export default {
 .cold-leave-active,
 .hot-enter-active,
 .hot-leave-active {
-	transition: opacity .3s ease-in;
+	transition: opacity .5s ease-in;
 }
 
 .cold-enter,
@@ -345,7 +355,7 @@ export default {
 
 .bat-enter-active,
 .bat-leave-active {
-	transition: opacity .3s ease-in, transform .3s ease-out;
+	transition: opacity .5s ease-in, transform .5s ease-out;
 }
 
 /* Заголовок */
@@ -358,7 +368,7 @@ export default {
 
 .title-appear-enter-active,
 .title-appear-leave-active {
-	transition: all .3s ease-in;
+	transition: all .5s ease-in;
 }
 .text-appear-enter,
 .text-appear-leave-to {
@@ -368,7 +378,7 @@ export default {
 
 .text-appear-enter-active,
 .text-appear-leave-active {
-	transition: all .3s ease-in;
+	transition: all .5s ease-in;
 }
 
 /* Верстка для мобильных */
