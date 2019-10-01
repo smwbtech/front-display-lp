@@ -331,6 +331,11 @@ export default {
 	.image {
 		& .title {
 			font-size: .8em;
+			transform: rotate(0deg) translateX(0);
+			writing-mode: horizontal-tb;
+			top: 20px;
+			left: 0;
+			text-align: center;
 		}
 		& .device {
 			& .port {

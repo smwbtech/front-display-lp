@@ -231,7 +231,7 @@ transform: translateY(0%) translateX(0);
 @media ( 320px <= width < 1024px) {
 	.image {
 		& .title {
-			top: 10%;
+			top: 20px;
 			font-size: .8em;
 		}
 	}

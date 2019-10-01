@@ -228,7 +228,8 @@ export default {
 	.images {
 		& .title {
 			font-size: 0.8em;
-			top: 10px;
+			top: 20px;
+			text-align: center;
 		}
 	}
 }
