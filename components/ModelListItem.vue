@@ -84,7 +84,7 @@ export default {
 	},
 
 	mounted() {
-		this.$emit('set-height', this.$el.offsetHeight)
+		setTimeout(() => this.$emit('set-height', this.$el.offsetHeight), 20)
 	}
 }
 </script>
