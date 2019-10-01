@@ -4,21 +4,21 @@
 		<TechnicalFeatureItem
 			:transitionName="'top'"
 			:bg="'rgba(0, 149, 218, 0.2)'"
-			:blockName="'showPorts'"
+			:blockName="'showTouch'"
 			:delay="600"
 			@observed="blockObservedHandler"
 		>
-			<TechnicalFeaturePorts :show="showPorts" />
+			<TechnicalFeatureTouch :show="showTouch" />
 		</TechnicalFeatureItem>
 		<!-- Сенсорный дисплей -->
 		<TechnicalFeatureItem
 			:transitionName="'bottom'"
 			:bg="'rgba(0, 149, 218, 0.6)'"
-			:blockName="'showTouch'"
+			:blockName="'showPorts'"
 			:delay="3600"
 			@observed="blockObservedHandler"
 		>
-			<TechnicalFeatureTouch :show="showTouch" />
+			<TechnicalFeaturePorts :show="showPorts" />
 		</TechnicalFeatureItem>
 		<TechnicalFeatureItem
 			:transitionName="'top'"

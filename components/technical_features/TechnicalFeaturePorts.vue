@@ -145,6 +145,7 @@ export default {
     height: 100%;
 	& .title {
 		position: absolute;
+		z-index: 105;
 		left: 20%;
 		letter-spacing: 5px;
 		writing-mode: vertical-rl;
@@ -153,9 +154,7 @@ export default {
 
     & .device {
 		position: relative;
-        & .image__device {
-
-        }
+		z-index: 105;
 
         /* Порты */
         & .port {
@@ -201,7 +200,7 @@ export default {
 			height: 100%;
 
 			& .text {
-				color: var(--blue);
+				color: #fff;
 				position: absolute;
 				text-align: left;
 				right: -150px;
@@ -215,7 +214,7 @@ export default {
 					content: "";
 					height: 3px;
 					width: 50px;
-					background: linear-gradient(45deg, rgba(0, 149, 218, 0),rgba(0, 149, 218, 1));
+					background: linear-gradient(45deg, rgba(255, 255, 255, 0),rgba(255, 255, 255, 1));
 					transform-origin: right;
 				}
 
