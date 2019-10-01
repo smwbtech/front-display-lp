@@ -335,6 +335,7 @@ export default {
 			writing-mode: horizontal-tb;
 			top: 20px;
 			left: 0;
+			width: 100%;
 			text-align: center;
 		}
 		& .device {
