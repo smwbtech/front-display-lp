@@ -20,13 +20,13 @@ module.exports = {
 				hid: 'description',
 				name: 'description',
 				content:
-					'Промышленные мониторы 17 и 19 российского производства'
+					'Промышленные мониторы Front Display DNA-17 и DNA-19 российского производства. Собственная торговая марка компании "Ниеншанц-Автоматика"'
 			},
 			{
 				hid: 'keywords',
 				name: 'keywords',
 				content:
-					'промышленный монитор, защищенный монитор, российский монитор'
+					'промышленный монитор, защищенный монитор, российский монитор, промышленный монитор 17, промышленный монитор 19, сенсорный промышленный монитор'
 			}
 		],
 		link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -68,7 +68,18 @@ module.exports = {
 		// Doc: https://axios.nuxtjs.org/usage
 		'@nuxtjs/axios',
 		'@nuxtjs/eslint-module',
-		'nuxt-svg-loader'
+		'nuxt-svg-loader',
+		[
+			'@nuxtjs/yandex-metrika',
+			{
+				id: '55589356',
+				webvisor: true,
+				clickmap: true,
+				useCDN: false,
+				trackLinks: true,
+				accurateTrackBounce: true
+			}
+		]
 	],
 	/*
 	 ** Axios module configuration
