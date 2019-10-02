@@ -22,7 +22,7 @@
 					srcset="/img/technical-features/front_mobile.png"
 				/>
 				<img
-					src="/img/technical-features/front.jpg"
+					src="/img/technical-features/front_large_desktop.png"
 					alt
 					:class="[
 						'image__item',
@@ -46,7 +46,7 @@
 					srcset="/img/technical-features/controlls_mobile.png"
 				/>
 				<img
-					src="/img/technical-features/controlls.png"
+					src="/img/technical-features/controlls_large_desktop.png"
 					:class="['controlls_image', isTransitionend ? 'move' : '']"
 					alt
 				/>
@@ -66,7 +66,7 @@
 					srcset="/img/technical-features/back_mobile.png"
 				/>
 				<img
-					src="/img/technical-features/back.jpg"
+					src="/img/technical-features/back_large_desktop.png"
 					alt
 					:class="[
 						'image__item',
@@ -119,16 +119,16 @@ export default {
 
 	& .controlls_image {
 		position: absolute;
-		bottom: calc(50% - (549px / 2) + 13px);
-		right: 89px;
+		bottom: calc(50% - (455px / 2) + 14px);
+		right: 240px;
 		z-index: 105;
 		box-shadow: 0px 0px 19px rgba(255, 255, 255, 0.8);
 		transition: all 1s ease-out;
 		transition-delay: 3s;
 
 		&.move {
-			bottom: calc(50% - (549px / 2) + 75px);
-			right: 308px;
+			bottom: calc(50% - (455px / 2) + 65px);
+			right: 400px;
 		}
 	}
 
@@ -138,8 +138,8 @@ export default {
 
 		&.front,
 		&.back {
-			top: calc(50% - (549px / 2));
-			right: 0;
+			top: calc(50% - (455px / 2));
+			right: calc(50% - (572px / 2));
 			opacity: 0;
 		}
 
@@ -183,19 +183,19 @@ export default {
 @media (1200px < width < 1600px) {
 	.images {
 		& .controlls_image {
-			bottom: calc(50% - (400px / 2) + 10px);
-			right: 69px;
+			bottom: calc(50% - (283px / 2) + 8px);
+			right: calc(50% - (358px / 2) + 130px);
 
 			&.move {
-				bottom: calc(50% - (400px / 2) + 50px);
-				right: 224px;
+				bottom: calc(50% - (283px / 2) + 40px);
+				right: calc(50% - (358px / 2) + 230px);
 			}
 		}
 		& .image__item {
 			&.front,
 			&.back {
-				top: calc(50% - (400px / 2));
-				right: 0;
+				top: calc(50% - (283px / 2));
+				right: calc(50% - (358px / 2));
 			}
 		}
 	}
@@ -205,20 +205,20 @@ export default {
 @media (320px <= width < 1024px), (1024px <= width <= 1200px) {
 	.images {
 		& .controlls_image {
-			bottom: calc(50% - (400px / 2) + 46px);
-			right: 49px;
+			bottom: calc(50% - (235px / 2) + 7px);
+			right: calc(50% - (296px / 2) + 110px);
 
 			&.move {
-				bottom: calc(50% - (400px / 2) + 80px);
-				right: 160px;
+				bottom: calc(50% - (235px / 2) + 30px);
+				right: calc(50% - (296px / 2) + 190px);
 			}
 		}
 
 		& .image__item {
 			&.front,
 			&.back {
-				top: calc(50% - (320px / 2));
-				right: -20px;
+				top: calc(50% - (235px / 2));
+				right: calc(50% - (296px / 2));
 			}
 		}
 	}
