@@ -27,9 +27,11 @@
 			</h2>
 			<div class="feature-text">
 				<transition name="title-appear">
-					<h3 v-if="!isChanging" class="feature-text__title">
-						{{ currentFeature.title }}
-					</h3>
+					<h3
+						v-if="!isChanging"
+						class="feature-text__title"
+						v-html="currentFeature.title"
+					></h3>
 				</transition>
 				<transition name="text-appear" mode="out-in">
 					<p v-if="!isChanging" class="feature-text__text">
@@ -73,14 +75,16 @@ export default {
 				{
 					name: 'water',
 					illustration: 'img/features-display/water.png',
-					title: 'Защита от воды IP65',
+					title:
+						'Защита от воды IP<span style="color: #757474;">6</span>5',
 					description:
 						'Защита от влаги по передней панели является критически важной характеристикой для промышленных дисплеев, поэтому мониторы серии DNA обеспечивают высокий класс защиты IP65 с лицевой стороны, защищающий устройство от влаги и брызг. Техническое решение реализовано за счет герметизации всех соединений передней панели монитора и наличия уплотнителя по контуру.'
 				},
 				{
 					name: 'sand',
 					illustration: 'img/features-display/sand.png',
-					title: 'Полная защита от проникновения пыли IP65',
+					title:
+						'Полная защита от проникновения пыли IP6<span style="color: #757474;">5</span>',
 					description:
 						'Конструкция монитора полностью перекрывает доступ пыли с лицевой панели. При встраивании в конечное оборудование заказчика ограничивается ее попадания с тыльной стороны прибора и интерфейсных разъемов. Данная особенность позволяет уберечь промышленный мониторы серии DNA от попадания микрочастиц внутрь, что гарантирует надежную работу устройства в тяжелых условиях производства, в том числе в помещениях с высоким уровнем пыли и загрязнений.'
 				},
