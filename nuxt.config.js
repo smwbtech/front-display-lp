@@ -27,6 +27,11 @@ module.exports = {
 				name: 'keywords',
 				content:
 					'промышленный монитор, защищенный монитор, российский монитор, промышленный монитор 17, промышленный монитор 19, сенсорный промышленный монитор'
+			},
+			{
+				hid: 'yandex-verification',
+				name: 'yandex-verification',
+				content: 'cc4966782a9065a8'
 			}
 		],
 		link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
