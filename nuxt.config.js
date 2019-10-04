@@ -64,7 +64,8 @@ module.exports = {
 			ssr: false
 		},
 		{ src: '~plugins/smooth-scroll.js', ssr: false },
-		{ src: '~/plugins/vue-scroll.js', ssr: false }
+		{ src: '~/plugins/vue-scroll.js', ssr: false },
+		{ src: '~/plugins/vue-touch.js', ssr: false }
 	],
 	/*
 	 ** Nuxt.js modules

@@ -3,7 +3,7 @@
 		<h2 class="title">
 			модельный ряд промышленных мониторов DNA
 		</h2>
-		<div class="models">
+		<div v-touch:swipe="swipeHandler" class="models">
 			<ArrowLeft
 				:class="[
 					slide === 0 ? 'models__controls_inactive' : '',
@@ -105,6 +105,14 @@ export default {
 		},
 		setHeight(h) {
 			if (this.height < h) this.height = h
+		},
+		swipeHandler(direction) {
+			if (direction === 'left') {
+				this.moveCarousel(-1)
+			} else if (direction === 'right') {
+				this.moveCarousel(1)
+			}
+			return false
 		}
 	}
 }
