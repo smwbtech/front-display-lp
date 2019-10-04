@@ -455,4 +455,15 @@ export default {
 		}
 	}
 }
+
+/* Верстка для современных мобильных девайсов с большим дисплеем */
+@media (320px < width < 1024px) {
+	.features-block {
+			& .text {
+				& .feature-text {
+					min-height: 62vh;
+				}
+			}
+	}
+}
 </style>
