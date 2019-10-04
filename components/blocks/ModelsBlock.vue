@@ -150,7 +150,7 @@ export default {
 				width: 100%;
 				display: flex;
 				overflow: hidden;
-				transition: all .8s linear;
+				transition: all .8s ease-out;
 			}
 		}
 	}
