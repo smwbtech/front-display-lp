@@ -206,7 +206,13 @@ export default {
 
 	mounted() {
 		// После того, как компонент был монтирован, мониторим его попадание во вьюпорт
-		this.observeScroll(this.$el)
+		// Делаем это в зависимости от разрешения экрана
+		// Для мобильных девайсов - отображаем контент сразу
+		if (window && window.innerWidth >= 1024) {
+			this.observeScroll(this.$el)
+		} else {
+			this.isObserved = true
+		}
 	},
 
 	methods: {
