@@ -75,7 +75,7 @@ export default {
 			return {
 				width: `${this.items.length * 100 +
 					this.items.length * this.marginSides}%`,
-				left: `${this.left}px`
+				transform: `translateX(${this.left}px)`
 			}
 		},
 		wrapperStyle() {
@@ -147,6 +147,7 @@ export default {
 				position: absolute;
 				left: 0%;
 				top: 0;
+				left: 0;
 				width: 100%;
 				display: flex;
 				overflow: hidden;
