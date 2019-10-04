@@ -18,7 +18,12 @@
 		</PageBlock>
 		<!-- Footer -->
 		<footer class="footer">
-			<a href="https://nnz-ipc.ru/" target="_blank" class="logo">
+			<a
+				href="https://nnz-ipc.ru/"
+				rel="nofollow"
+				target="_blank"
+				class="logo"
+			>
 				<img
 					src="/img/nnz_logo.svg"
 					alt="Логотип Ниеншанц-Автоматика"

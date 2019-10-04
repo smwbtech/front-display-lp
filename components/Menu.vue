@@ -2,11 +2,13 @@
 	<!-- Меню -->
 	<nav class="menu">
 		<!-- Логотип Front Display -->
-		<img
-			src="/img/nnz_logo.svg"
-			alt="Логотип линейки промышленных мониторов Front Display"
-			class="logo"
-		/>
+		<a target="_blank" rel="nofollow" href="https://nnz-ipc.ru/">
+			<img
+				src="/img/nnz_logo.svg"
+				alt="Логотип линейки промышленных мониторов Front Display"
+				class="logo"
+			/>
+		</a>
 		<ul class="menu-list">
 			<!-- Навигация по странице -->
 			<li
