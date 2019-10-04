@@ -30,3 +30,7 @@ h6 {
 	font-family: 'Orpheus', serif;
 	margin: 0;
 }
+
+.hide-scroll {
+	overflow-y: hidden;
+}

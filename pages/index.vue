@@ -14,10 +14,7 @@
 		<PageBlock><TechnicalFeaturesBlock /></PageBlock>
 		<!-- Список моделей -->
 		<PageBlock>
-			<ModelsBlock
-				:items="items"
-				@show-modal="modalWindowHandler"
-			></ModelsBlock>
+			<ModelsBlock :items="items" @show-modal="modalOpen" />
 		</PageBlock>
 		<!-- Footer -->
 		<footer class="footer">
@@ -64,7 +61,7 @@
 			<ModelFullView
 				v-if="showModalWindow"
 				:model="items[currentIndex]"
-				@close-modal="showModalWindow = false"
+				@close-modal="modalClose"
 			></ModelFullView>
 		</transition>
 		<!-- Экран загрузки -->
@@ -156,9 +153,24 @@ export default {
 		 * @param  {number} index - порядковый индекс товара в массиве
 		 * @return {udnefined}
 		 */
-		modalWindowHandler(index) {
+		modalOpen(index) {
 			this.currentIndex = index
 			this.showModalWindow = true
+			if (process.client) {
+				// Прячем скролл у body, после открытия модального окна
+				setTimeout(
+					() =>
+						document
+							.querySelector('body')
+							.classList.add('hide-scroll'),
+					300
+				)
+			}
+		},
+
+		modalClose() {
+			document.querySelector('body').classList.remove('hide-scroll')
+			this.showModalWindow = false
 		}
 	}
 }
