@@ -107,9 +107,9 @@ export default {
 			if (this.height < h) this.height = h
 		},
 		swipeHandler(direction) {
-			if (direction === 'left') {
+			if (direction === 'right') {
 				this.moveCarousel(-1)
-			} else if (direction === 'right') {
+			} else if (direction === 'left') {
 				this.moveCarousel(1)
 			}
 			return false
