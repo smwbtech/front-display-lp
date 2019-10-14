@@ -12,7 +12,7 @@
 			{{ model.name }}
 		</h4>
 		<!-- Описание -->
-		<p class="model-titel__desc" v-html="model.description.value" />
+		<div class="model-titel__desc" v-html="model.description.value" />
 		<!-- Цена -->
 		<p class="price">
 			{{ this.price }}
