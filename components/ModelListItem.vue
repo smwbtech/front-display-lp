@@ -68,7 +68,7 @@ export default {
 		 */
 		price() {
 			const price = parseFloat(this.model.price.value)
-			return price > 0 ? price : ' по запросу'
+			return price > 0 ? Math.round(price) : ' по запросу'
 		},
 
 		/**
@@ -119,6 +119,7 @@ export default {
 	/* Описание модели */
 	& .model-titel__desc {
 		width: 90%;
+		margin-bottom: 10px;
 		font-size: .8em;
 		font-weight: 100;
 		line-height: 1.4;
