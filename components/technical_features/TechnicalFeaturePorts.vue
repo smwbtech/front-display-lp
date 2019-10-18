@@ -150,6 +150,7 @@ export default {
 		letter-spacing: 5px;
 		writing-mode: vertical-rl;
 		transform: rotate(180deg) translateX(0px);
+		transform-origin: center center;
 	}
 
     & .device {
