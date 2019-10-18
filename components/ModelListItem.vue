@@ -57,6 +57,10 @@ export default {
 		index: {
 			type: Number,
 			required: true
+		},
+		usdCurrency: {
+			type: Number,
+			default: null
 		}
 	},
 
@@ -68,7 +72,16 @@ export default {
 		 */
 		price() {
 			const price = parseFloat(this.model.price.value)
-			return price > 0 ? Math.round(price) : ' по запросу'
+			if (price > 0) {
+				if (this.usdCurrency) {
+					const extra = this.usdCurrency * 0.02 + this.usdCurrency
+					const rubles = parseFloat((price * extra).toFixed(2))
+					return `${rubles} руб`
+				}
+				return `${Math.round(price)} у.е.`
+			} else {
+				return ' по запросу'
+			}
 		},
 
 		/**
@@ -152,7 +165,7 @@ export default {
 	& .price {
 		margin-bottom: 5px;
 		&:before {
-			background-image: url('/img/models-display/dollar-symbol.svg');
+			background-image: url('/img/models-display/rubble.svg');
 		}
 	}
 

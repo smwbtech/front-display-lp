@@ -14,7 +14,11 @@
 		<PageBlock><TechnicalFeaturesBlock /></PageBlock>
 		<!-- Список моделей -->
 		<PageBlock>
-			<ModelsBlock :items="items" @show-modal="modalOpen" />
+			<ModelsBlock
+				:items="items"
+				:currency="currency"
+				@show-modal="modalOpen"
+			/>
 		</PageBlock>
 		<!-- Footer -->
 		<footer class="footer">
@@ -92,6 +96,7 @@ import LoadingIndicator from '@/components/LoadingIndicator.vue'
 
 import { getToken } from '@/assets/js/getToken.js'
 import { getItems } from '@/assets/js/getItems.js'
+import { getCurrency } from '@/assets/js/getCurrency.js'
 
 export default {
 	components: {
@@ -113,6 +118,7 @@ export default {
 			sectionId: 297677, // id секции каталога nnz-ipc.ru, откуда получаем информацию о товарах
 			currentIndex: 0, // девайс, который просматриваем
 			items: [], // массив, содержащий объекты товаров,
+			currency: null,
 			imgLoadedCounter: 0,
 			preloadImages: [
 				'/img/first-display/background.jpg',
@@ -140,7 +146,8 @@ export default {
 	async asyncData() {
 		const token = await getToken()
 		const items = await getItems(token)
-		return { items }
+		const currency = await getCurrency()
+		return { items, currency }
 	},
 
 	beforeMount() {

@@ -18,6 +18,7 @@
 						:key="model.name"
 						:model="model"
 						:index="index"
+						:usdCurrency="usdCurrency"
 						@more-info="(index) => $emit('show-modal', index)"
 						@set-height="setHeight"
 					></ModelListItem>
@@ -46,6 +47,10 @@ export default {
 		items: {
 			type: Array,
 			required: true
+		},
+		currency: {
+			type: Object,
+			default: null
 		}
 	},
 	data() {
@@ -82,6 +87,10 @@ export default {
 			return {
 				height: `${this.height + 40}px`
 			}
+		},
+
+		usdCurrency() {
+			return this.currency ? this.currency.Valute.USD.Value : null
 		}
 	},
 	mounted() {
