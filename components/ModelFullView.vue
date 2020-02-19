@@ -80,11 +80,14 @@ export default {
 		 * @return {array} - массив содержащий строки со ссылками на фото модели
 		 */
 		images() {
-			const photos = this.model.photos
-				? this.model.photos.value.slice(0, 3)
-				: []
-			const total = [this.model.previewPhoto.value, ...photos]
-			return total.length > 1 ? total : []
+			if (this.model.photos && this.model.photos.value) {
+				const photos = this.model.photos
+					? this.model.photos.value.slice(0, 3)
+					: []
+				const total = [this.model.previewPhoto.value, ...photos]
+				return total.length > 1 ? total : []
+			}
+			return []
 		},
 
 		/**
@@ -136,7 +139,9 @@ export default {
 
 	mounted() {
 		// Устанавливаем фото, которое выбрано как превью для сайта nnz-ipc.ru, как активное
-		this.currentIllustration = this.model.previewPhoto.value
+		if (this.model.previewPhoto && this.model.previewPhoto.value) {
+			this.currentIllustration = this.model.previewPhoto.value
+		}
 	},
 
 	methods: {
@@ -153,33 +158,32 @@ export default {
 </script>
 
 <style lang="css" scoped>
-
 .full-view {
 	display: flex;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 1000;
-    width: 100vw;
-    height: 100vh;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 1000;
+	width: 100vw;
+	height: 100vh;
 	padding-top: calc(var(--row) + var(--gutter));
-    background-color: #fff;
+	background-color: #fff;
 
 	/* Кнопка закрыть */
-    & .close {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        width: 40px;
-        height: 40px;
+	& .close {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		width: 40px;
+		height: 40px;
 		cursor: pointer;
-		opacity: .5;
-		transition: opacity .3s ease-in;
+		opacity: 0.5;
+		transition: opacity 0.3s ease-in;
 
 		&:hover {
 			opacity: 1;
 		}
-    }
+	}
 
 	/* Контент модального окна */
 	& .content {
@@ -187,7 +191,6 @@ export default {
 
 		/* Блок фотографий */
 		& .illustration {
-
 			width: calc(var(--column) * 12 + var(--gutter) * 11);
 			padding: 0 calc(var(--column) + var(--gutter));
 			display: flex;
@@ -237,7 +240,7 @@ export default {
 					position: relative;
 
 					&:after {
-						content: "";
+						content: '';
 						display: block;
 						position: absolute;
 						z-index: 20;
@@ -259,14 +262,13 @@ export default {
 
 			/* Характеристики */
 			& .features {
-
 				height: calc(var(--row) * 6 + var(--gutter) * 5);
 				overflow-y: hidden;
 
 				/* Список характеристик */
 				& .features-list {
 					list-style: none;
-					font-size: .8em;
+					font-size: 0.8em;
 					padding-bottom: 40px;
 
 					/* Блок характеристики */
@@ -277,7 +279,7 @@ export default {
 						display: flex;
 						justify-content: space-between;
 						border: 2px solid rgba(0, 149, 218, 0);
-						transition: border .2s ease-in;
+						transition: border 0.2s ease-in;
 
 						&:hover {
 							border: 2px solid rgba(0, 149, 218, 1);
@@ -295,13 +297,9 @@ export default {
 						}
 					} /* end Блок характеристики */
 				}
-
 			} /* end Характеристики */
-
 		} /* end Блок текстового контента */
-
 	} /* end Контент модального окна */
-
 }
 
 @media (320px <= width < 1024px) {
@@ -340,7 +338,6 @@ export default {
 				}
 
 				& .header {
-
 					& .title {
 						font-size: 1em;
 
@@ -354,7 +351,7 @@ export default {
 					width: 100%;
 
 					& .features-list {
-						font-size: .7em;
+						font-size: 0.7em;
 					}
 				}
 			}
