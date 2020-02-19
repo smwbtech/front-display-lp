@@ -2,6 +2,7 @@
 	<div class="model-item">
 		<!-- Превью девайса -->
 		<img
+			v-if="model.previewPhoto && model.previewPhoto.value"
 			:src="model.previewPhoto.value"
 			alt=""
 			class="model-item__image"
@@ -103,37 +104,36 @@ export default {
 </script>
 
 <style lang="css" scoped>
-
 .model-item {
 	display: flex;
 	flex-flow: column;
 	justify-content: space-between;
 	align-items: center;
-    width: calc(var(--column) * 5 + var(--gutter) * 4);
+	width: calc(var(--column) * 5 + var(--gutter) * 4);
 	margin: 20px 40px;
-    padding: 10px;
-    background-color: #fff;
-    box-shadow: 3px 3px 12px rgba(0,0,0,.1);
+	padding: 10px;
+	background-color: #fff;
+	box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.1);
 	border: 3px solid rgba(0, 149, 218, 0);
 	text-align: center;
-	transition: border .2s ease-in;
+	transition: border 0.2s ease-in;
 
 	&:hover {
 		border: 3px solid #0095da;
 	}
 
 	/* Превью изображения */
-    & .model-item__image {
-        max-width: 90%;
+	& .model-item__image {
+		max-width: 90%;
 		min-height: 1px;
 		cursor: pointer;
-    }
+	}
 
 	/* Описание модели */
 	& .model-titel__desc {
 		width: 90%;
 		margin-bottom: 10px;
-		font-size: .8em;
+		font-size: 0.8em;
 		font-weight: 100;
 		line-height: 1.4;
 		text-align: justify;
@@ -146,10 +146,10 @@ export default {
 		margin: 0;
 		padding: 0;
 		font-family: 'Orpheus', serif;
-		font-size: .8em;
+		font-size: 0.8em;
 
 		&:before {
-			content: "";
+			content: '';
 			position: absolute;
 			left: -30px;
 			top: -2px;
@@ -160,7 +160,7 @@ export default {
 			background-size: 90%;
 			background-repeat: no-repeat;
 		}
-	}/* end Цена и наличие */
+	} /* end Цена и наличие */
 
 	& .price {
 		margin-bottom: 5px;
@@ -171,7 +171,7 @@ export default {
 
 	& .stock {
 		margin-bottom: 20px;
-		color: rgba(0,0,0,.5);
+		color: rgba(0, 0, 0, 0.5);
 		&:before {
 			background-image: url('/img/models-display/storage.svg');
 			left: -32px;
@@ -183,15 +183,15 @@ export default {
 	}
 
 	/* Кнопки действия */
-    & .controls {
-        display: flex;
+	& .controls {
+		display: flex;
 		width: 100%;
-        justify-content: space-between;
+		justify-content: space-between;
 
-        & > * {
-            width: calc(var(--column) * 2 + var(--gutter));
-			font-size: .8em;
-        }
+		& > * {
+			width: calc(var(--column) * 2 + var(--gutter));
+			font-size: 0.8em;
+		}
 
 		& .buy,
 		& .more {
@@ -201,7 +201,7 @@ export default {
 			padding: 10px;
 			text-decoration: none;
 		}
-    } /* end Кнопки действия */
+	} /* end Кнопки действия */
 }
 
 @media (width: 1024px) {
@@ -223,13 +223,12 @@ export default {
 		padding: 5px;
 
 		& .model-titel__desc {
-			font-size: .7em;
+			font-size: 0.7em;
 			text-align: center;
 			line-height: 1.2;
 		}
 
 		& .controls {
-
 			flex-flow: column;
 			justify-content: center;
 			align-items: center;
