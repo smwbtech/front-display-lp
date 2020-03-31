@@ -1,7 +1,7 @@
 <template lang="html">
 	<section class="models-display">
 		<h2 class="title">
-			модельный ряд промышленных мониторов DNA
+			модельный ряд российских промышленных мониторов
 		</h2>
 		<div v-touch:swipe="swipeHandler" class="models">
 			<ArrowLeft
